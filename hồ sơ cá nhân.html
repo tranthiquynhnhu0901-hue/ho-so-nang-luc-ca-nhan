@@ -1,0 +1,2594 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRẦN THỊ QUỲNH NHƯ — Performance-Driven Social Media &amp; Content Marketer</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Syne, Playfair Display, Plus Jakarta Sans, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['"Syne"', '"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        alabaster: '#FCFBF9',
+                        pearl: '#F5F2EE',
+                        scarlet: '#E6192E',
+                        ruby: '#9F1239',
+                        blush: '#FFF1F3',
+                        ink: '#121011',
+                        gold: '#D97706',
+                        hairline: '#EAE4DF'
+                    },
+                    boxShadow: {
+                        'gallery': '0 20px 45px -15px rgba(18, 16, 17, 0.06)',
+                        'scarlet-glow': '0 16px 36px -8px rgba(230, 25, 46, 0.32)',
+                        'editorial': '5px 5px 0px #121011',
+                        'editorial-red': '5px 5px 0px #E6192E',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-alabaster: #FCFBF9;
+            --scarlet: #E6192E;
+            --ruby: #9F1239;
+            --ink: #121011;
+            --hairline: #EAE4DF;
+        }
+
+        body {
+            background-color: var(--bg-alabaster);
+            color: var(--ink);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Luxury Printed Magazine Micro-Grain Overlay */
+        .paper-grain {
+            background-image: radial-gradient(rgba(230, 25, 46, 0.065) 1px, transparent 0),
+                              radial-gradient(rgba(18, 16, 17, 0.04) 1px, transparent 0);
+            background-size: 28px 28px;
+            background-position: 0 0, 14px 14px;
+        }
+
+        /* Architectural Swiss Hairline Borders */
+        .hairline-t { border-top: 1px solid var(--hairline); }
+        .hairline-b { border-bottom: 1px solid var(--hairline); }
+        .hairline-l { border-left: 1px solid var(--hairline); }
+        .hairline-r { border-right: 1px solid var(--hairline); }
+
+        /* Inline KPI Highlight Pill inside sentences (5-Second Scan Rule) */
+        .kpi-inline {
+            display: inline-block;
+            background-color: #FFF1F3;
+            color: #E6192E;
+            font-weight: 800;
+            padding: 0.05rem 0.42rem;
+            border-radius: 0.35rem;
+            border: 1px solid rgba(230, 25, 46, 0.25);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.88em;
+        }
+
+        /* Rotating Agency Stamp */
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spinSlow 20s linear infinite;
+        }
+
+        /* Kinetic Marquee Ribbon */
+        @keyframes marqueeLeft {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marqueeLeft 32s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Auto-Sizing Image Masonry Columns (Preserves exact naturalWidth x naturalHeight) */
+        .masonry-gallery {
+            column-count: 1;
+            column-gap: 1.25rem;
+        }
+        @media (min-width: 640px) {
+            .masonry-gallery { column-count: 2; }
+        }
+        .masonry-gallery.cols-3 {
+            column-count: 1;
+        }
+        @media (min-width: 640px) {
+            .masonry-gallery.cols-3 { column-count: 2; }
+        }
+        @media (min-width: 1024px) {
+            .masonry-gallery.cols-3 { column-count: 3; }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Card Magnetic Hover Lift */
+        .art-card {
+            position: relative;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, box-shadow 0.4s ease;
+        }
+        .art-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 1.5rem;
+            right: 1.5rem;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #E6192E, transparent);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            border-radius: 99px;
+            pointer-events: none;
+        }
+        .art-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(230, 25, 46, 0.45);
+            box-shadow: 0 18px 38px -14px rgba(18, 16, 17, 0.08);
+        }
+        .art-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #FCFBF9; }
+        ::-webkit-scrollbar-thumb { background: #E6192E; border-radius: 99px; }
+
+        /* =========================================================================
+           GENTLE LUXURY EDITORIAL CURSOR & CALM SCROLL REVEAL
+           ========================================================================= */
+        #ambientMouseSpotlight {
+            position: fixed;
+            width: 640px;
+            height: 640px;
+            border-radius: 9999px;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(circle, rgba(230, 25, 46, 0.042) 0%, rgba(255, 241, 243, 0.02) 45%, transparent 70%);
+            transform: translate3d(-50%, -50%, 0);
+            transition: opacity 0.4s ease;
+        }
+
+        #artCursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 9999px;
+            border: 1px solid rgba(230, 25, 46, 0.35);
+            background-color: transparent;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate3d(-50%, -50%, 0);
+            transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                        height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                        background-color 0.35s ease,
+                        border-color 0.35s ease;
+        }
+        #artCursor.cursor-hover {
+            width: 44px;
+            height: 44px;
+            border-color: rgba(230, 25, 46, 0.55);
+            background-color: rgba(230, 25, 46, 0.055);
+        }
+
+        /* Calm Scroll-Triggered Fade-Up */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-item.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+        }
+    </style>
+</head>
+<body class="selection:bg-scarlet selection:text-white relative paper-grain">
+
+    <!-- SUBTLE AMBIENT WARM GLOW BEHIND CARDS -->
+    <div id="ambientMouseSpotlight" class="hidden lg:block no-print"></div>
+
+    <!-- DELICATE MINIMALIST RING FOLLOWER (NEVER BLOCKS TEXT) -->
+    <div id="artCursor" class="hidden lg:block no-print"></div>
+
+    <!-- TOP EDITORIAL ISSUE RIBBON + GENTLE CURSOR TOGGLE -->
+    <div class="bg-ink text-alabaster text-[11px] font-mono py-2 px-4 sm:px-8 flex flex-wrap items-center justify-between gap-2 relative z-40 no-print">
+        <div class="flex items-center gap-2.5">
+            <span class="w-2 h-2 rounded-full bg-scarlet"></span>
+            <span class="font-extrabold text-scarlet tracking-widest uppercase">PORTFOLIO LOOKBOOK 2026</span>
+            <span class="hidden sm:inline text-white/30">|</span>
+            <span class="hidden sm:inline text-white/80">MINIMALIST MODERN ART EDITORIAL EDITION</span>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+            <button onclick="toggleGentleCursor()" id="toggleCursorBtn" class="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 hover:bg-white/20 text-white/85 font-mono text-[10px] transition-colors border border-white/15">
+                <span id="cursorStatusDot" class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <span id="cursorStatusText">Vòng trỏ chuột êm: BẬT</span>
+            </button>
+            <span class="text-scarlet hidden sm:inline">•</span>
+            <a href="tel:0377311559" class="font-bold hover:text-scarlet transition-colors">0377.311.559</a>
+        </div>
+    </div>
+
+    <!-- STICKY GALLERY NAVIGATION HEADER -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-alabaster/90 hairline-b no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+            <!-- Brand Identity -->
+            <a href="#mainPortfolioView" onclick="closeEvidencePage()" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-scarlet text-white flex items-center justify-center font-serif italic font-black text-xl shadow-scarlet-glow group-hover:scale-105 transition-transform">
+                    N.
+                </div>
+                <div>
+                    <div class="font-serif font-extrabold text-base sm:text-lg text-ink tracking-tight leading-none">
+                        TRẦN THỊ QUỲNH NHƯ
+                    </div>
+                    <div class="font-mono text-[10px] tracking-[0.18em] uppercase text-scarlet font-bold mt-1">
+                        PERFORMANCE &amp; CONTENT MARKETER
+                    </div>
+                </div>
+            </a>
+
+            <!-- Chapter Navigation Pills -->
+            <nav id="mainHeaderNav" class="hidden xl:flex items-center bg-white px-2 py-1.5 rounded-full border border-hairline shadow-sm text-xs font-mono">
+                <a href="#chapter-01" onclick="closeEvidencePage()" class="px-3.5 py-1.5 rounded-full hover:bg-scarlet hover:text-white transition-all font-bold text-scarlet">01. Chân dung &amp; KPI</a>
+                <a href="#chapter-02" onclick="closeEvidencePage()" class="px-3.5 py-1.5 rounded-full hover:bg-scarlet hover:text-white transition-all">02. Chiến dịch (6)</a>
+                <a href="#chapter-03" onclick="closeEvidencePage()" class="px-3.5 py-1.5 rounded-full hover:bg-scarlet hover:text-white transition-all">03. Dự án &amp; Top 30 DBC</a>
+                <a href="#chapter-04" onclick="closeEvidencePage()" class="px-3.5 py-1.5 rounded-full hover:bg-scarlet hover:text-white transition-all">04. Hệ sinh thái Kỹ năng</a>
+                <a href="#chapter-05" onclick="closeEvidencePage()" class="px-3.5 py-1.5 rounded-full hover:bg-scarlet hover:text-white transition-all">05. Học vấn &amp; MC</a>
+            </nav>
+
+            <!-- Dedicated Evidence Page Trigger & Contact -->
+            <div class="flex items-center gap-2.5">
+                <button onclick="openEvidencePage('combat')" class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-blush border border-scarlet/30 text-scarlet hover:bg-scarlet hover:text-white text-xs font-mono font-extrabold uppercase transition-all shadow-sm">
+                    <i data-lucide="Sparkles" class="w-3.5 h-3.5"></i>
+                    <span>Trang Minh Chứng Riêng (8)</span>
+                </button>
+                <a href="#contact-footer" onclick="closeEvidencePage()" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-ink text-white hover:bg-scarlet text-xs font-mono font-bold uppercase transition-all">
+                    <span>Liên hệ</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================================
+         VIEW 1: MAIN MODERN ART EDITORIAL PORTFOLIO
+         ============================================================================ -->
+    <main id="mainPortfolioView" class="block">
+
+        <!-- ========================================================================
+             CHAPTER 01: LAYERED BAUHAUS HERO & 5-SECOND KPI SCULPTURE
+             ======================================================================== -->
+        <section id="chapter-01" class="relative pt-8 pb-16 hairline-b overflow-hidden">
+            <!-- Artistic Background Watermark Typography -->
+            <div class="pointer-events-none select-none absolute top-10 right-0 font-display font-extrabold text-[11vw] leading-none text-scarlet/[0.04] tracking-tighter uppercase whitespace-nowrap">
+                CREATIVE PERFORMANCE
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <!-- Chapter Coordinate Bar -->
+                <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-8 hairline-b font-mono text-xs">
+                    <div class="flex items-center gap-2.5">
+                        <span class="px-2.5 py-1 rounded bg-scarlet text-white font-extrabold">CHAPTER 01 / 05</span>
+                        <span class="text-ink/60 uppercase tracking-widest">LAYERED EDITORIAL HERO &amp; 5-SECOND KPI SCULPTURE</span>
+                    </div>
+                    <span class="font-serif italic text-scarlet text-sm">“Nơi Tư Duy Sáng Tạo Gặp Gỡ Dữ Liệu Chuyển Đổi Thực Chiến”</span>
+                </div>
+
+                <!-- Hero Asymmetric Split Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+                    
+                    <!-- Left Editorial Manifesto & Positioning (7 Cols) -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <!-- Status Badge -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-scarlet/30 shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-scarlet animate-ping"></span>
+                            <span class="font-mono text-[11px] font-bold uppercase tracking-wider text-scarlet">
+                                MARKETING EXECUTIVE • SOCIAL MEDIA &amp; E-COMMERCE
+                            </span>
+                        </div>
+
+                        <!-- Editorial Display Name & Sharp Positioning Headline -->
+                        <div class="space-y-2">
+                            <div class="font-serif italic text-xl sm:text-2xl text-scarlet font-semibold">
+                                Creative Strategist • Short-Form Video • Performance Ads
+                            </div>
+                            <h1 class="font-serif font-black text-5xl sm:text-6xl xl:text-7xl text-ink tracking-tight leading-[1.03]">
+                                TRẦN THỊ <br>
+                                <span class="inline-block bg-scarlet text-white px-5 py-1 rounded-2xl shadow-scarlet-glow transform -rotate-1 mt-1">
+                                    QUỲNH NHƯ
+                                </span>
+                            </h1>
+                        </div>
+
+                        <!-- Upgraded Positioning Bio + Verbatim Career Objective with 5-Second Bold Highlights -->
+                        <div class="bg-white rounded-3xl p-6 sm:p-7 border border-hairline shadow-gallery relative">
+                            <div class="flex items-center justify-between mb-3 pb-2.5 hairline-b">
+                                <span class="font-mono text-[11px] font-extrabold uppercase tracking-wider text-scarlet flex items-center gap-1.5">
+                                    <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+                                    ĐỊNH VỊ CÁ NHÂN &amp; MỤC TIÊU NGHỀ NGHIỆP
+                                </span>
+                                <span class="font-mono text-[10px] text-ink/50">VERIFIED DOSSIER</span>
+                            </div>
+
+                            <!-- Upgraded Sharp Headline -->
+                            <p class="font-serif italic font-bold text-lg sm:text-xl text-ink mb-3 leading-snug">
+                                “Performance-Driven Social Media &amp; Content Marketer — Kết hợp tư duy sáng tạo hình ảnh/video ngắn với dữ liệu quảng cáo để tối ưu chuyển đổi thực tế.”
+                            </p>
+
+                            <div class="space-y-2.5 text-sm sm:text-[15px] text-ink/85 leading-relaxed">
+                                <p>
+                                    • Định hướng phát triển chuyên sâu trong lĩnh vực <span class="kpi-inline">Social Media Marketing</span>, tập trung vào <strong>chiến lược nội dung, sáng tạo video ngắn và tăng trưởng thương hiệu</strong> trên các nền tảng số.
+                                </p>
+                                <p>
+                                    • Có kinh nghiệm thực tế trong <strong>lập kế hoạch truyền thông, quản lý nội dung đa nền tảng, sản xuất hình ảnh/video, triển khai quảng cáo</strong> và phân tích hiệu quả chiến dịch.
+                                </p>
+                                <p>
+                                    • Mong muốn kết hợp tư duy sáng tạo với dữ liệu nhằm nâng cao nhận diện thương hiệu, gia tăng tương tác và <strong>hỗ trợ chuyển đổi kinh doanh bền vững</strong>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Personal Passport Strip -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                            <div class="bg-white p-3.5 rounded-2xl border border-hairline">
+                                <div class="font-mono text-[10px] uppercase text-ink/45 font-bold">NGÀY SINH</div>
+                                <div class="font-mono text-xs sm:text-sm font-extrabold text-ink mt-0.5">09/01/2006</div>
+                            </div>
+                            <a href="tel:0377311559" class="bg-white p-3.5 rounded-2xl border border-hairline hover:border-scarlet transition-colors group">
+                                <div class="font-mono text-[10px] uppercase text-ink/45 group-hover:text-scarlet font-bold">ĐIỆN THOẠI</div>
+                                <div class="font-mono text-xs sm:text-sm font-extrabold text-scarlet mt-0.5">0377311559</div>
+                            </a>
+                            <button onclick="copyEmailAddress()" class="bg-white p-3.5 rounded-2xl border border-hairline hover:border-scarlet transition-colors text-left group col-span-2 sm:col-span-1">
+                                <div class="font-mono text-[10px] uppercase text-ink/45 group-hover:text-scarlet font-bold">EMAIL (CLICK COPY)</div>
+                                <div class="font-mono text-xs font-extrabold text-ink truncate mt-0.5" title="tranthiquynhnhu0901@gmail.com">tranthiquynhnhu0901@gmail.com</div>
+                            </button>
+                            <div class="bg-white p-3.5 rounded-2xl border border-hairline col-span-2 sm:col-span-1">
+                                <div class="font-mono text-[10px] uppercase text-ink/45 font-bold">KHU VỰC</div>
+                                <div class="font-sans text-xs font-bold text-ink mt-0.5 leading-tight">Phường An Hội Đông, TP.HCM</div>
+                            </div>
+                        </div>
+
+                        <!-- Primary Call-to-Actions -->
+                        <div class="flex flex-wrap items-center gap-3.5 pt-1">
+                            <button onclick="openEvidencePage('combat')" class="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-scarlet text-white font-mono text-xs sm:text-sm font-extrabold uppercase tracking-wider shadow-scarlet-glow hover:bg-ruby transition-all">
+                                <i data-lucide="layout-grid" class="w-4 h-4"></i>
+                                <span>Mở Phòng Trưng Bày Minh Chứng (Video &amp; Ảnh)</span>
+                            </button>
+                            <a href="#chapter-02" class="inline-flex items-center gap-2 px-5 py-4 rounded-2xl bg-white text-ink border border-ink/20 hover:border-scarlet hover:text-scarlet font-mono text-xs sm:text-sm font-bold uppercase transition-all">
+                                <span>Xem 06 Chiến Dịch Thực Chiến</span>
+                                <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Layered Art Collage Portrait Stage (5 Cols) -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative mx-auto max-w-md">
+
+                            <!-- Rotating 360° SVG Agency Stamp -->
+                            <div class="absolute -top-7 -right-5 z-30 w-28 h-28 sm:w-32 sm:h-32 pointer-events-none">
+                                <svg viewBox="0 0 100 100" class="w-full h-full animate-spin-slow">
+                                    <defs>
+                                        <path id="stampCircle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
+                                    </defs>
+                                    <circle cx="50" cy="50" r="46" fill="#E6192E" stroke="#FFFFFF" stroke-width="2.5"/>
+                                    <text fill="#FFFFFF" font-size="7.1" font-family="JetBrains Mono" font-weight="bold" letter-spacing="1.4">
+                                        <textPath href="#stampCircle">
+                                            • CREATIVE • DATA DRIVEN • MARKETER •
+                                        </textPath>
+                                    </text>
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <i data-lucide="award" class="w-6 h-6 text-white"></i>
+                                </div>
+                            </div>
+
+                            <!-- Layered Tilted Red Backdrop Frame (Artistic Depth) -->
+                            <div class="absolute inset-0 bg-gradient-to-br from-scarlet to-ruby rounded-[2rem] transform rotate-2 translate-x-2.5 translate-y-2.5 opacity-90"></div>
+
+                            <!-- Main Portrait Gallery Card -->
+                            <div class="relative bg-white rounded-[2rem] p-4 sm:p-5 border-2 border-ink shadow-gallery transition-transform duration-500 z-10">
+                                <div class="flex items-center justify-between pb-3 mb-3 hairline-b font-mono text-[11px]">
+                                    <span class="font-extrabold text-scarlet flex items-center gap-1.5">
+                                        <span class="w-2 h-2 rounded-full bg-scarlet"></span>
+                                        PORTRAIT // QUỲNH NHƯ
+                                    </span>
+                                    <span class="px-2 py-0.5 rounded bg-blush text-scarlet font-bold">GPA 3.71 / 4.0</span>
+                                </div>
+
+                                <!-- Portrait Image Container -->
+                                <div class="relative aspect-[4/4.5] rounded-2xl overflow-hidden bg-pearl border border-hairline group">
+                                    <img id="heroPortraitImg" 
+                                         src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85" 
+                                         alt="Trần Thị Quỳnh Như - Marketing Executive" 
+                                         class="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-700">
+                                    
+                                    <!-- Glassmorphic Bottom Overlay -->
+                                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 via-ink/50 to-transparent p-4 pt-12 text-white">
+                                        <div class="flex items-end justify-between gap-2">
+                                            <div>
+                                                <div class="font-mono text-[10px] bg-scarlet text-white px-2.5 py-0.5 rounded-full font-extrabold inline-block uppercase mb-1">
+                                                    GEN-Z MARKETER • 2006
+                                                </div>
+                                                <div class="font-serif italic font-bold text-xl">Trần Thị Quỳnh Như</div>
+                                            </div>
+                                            <label for="heroPortraitUpload" class="cursor-pointer bg-white/95 hover:bg-scarlet text-ink hover:text-white px-3 py-2 rounded-xl font-mono text-[11px] font-extrabold uppercase transition-colors flex items-center gap-1.5 shadow-md shrink-0">
+                                                <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+                                                <span>Đổi ảnh CV</span>
+                                            </label>
+                                            <input id="heroPortraitUpload" type="file" accept="image/*" class="hidden" onchange="handlePortraitChange(event)">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Floating Mini Highlight Strip under Portrait -->
+                                <div class="grid grid-cols-3 gap-2 mt-3.5 pt-3 hairline-t text-center font-mono">
+                                    <div class="bg-blush/70 rounded-xl p-2">
+                                        <div class="text-sm sm:text-base font-extrabold text-scarlet">~200K</div>
+                                        <div class="text-[9px] uppercase text-ink/60 font-bold">Viral Views</div>
+                                    </div>
+                                    <div class="bg-blush/70 rounded-xl p-2">
+                                        <div class="text-sm sm:text-base font-extrabold text-ink">+40%</div>
+                                        <div class="text-[9px] uppercase text-ink/60 font-bold">Doanh thu F&amp;B</div>
+                                    </div>
+                                    <div class="bg-blush/70 rounded-xl p-2">
+                                        <div class="text-sm sm:text-base font-extrabold text-scarlet">TOP 30</div>
+                                        <div class="text-[9px] uppercase text-ink/60 font-bold">Toàn Quốc DBC</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 5-SECOND SCAN KPI BENTO SCULPTURE (6 Quantified Pillars with Calm Count-Up) -->
+                <div class="mt-14">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                        <div class="font-mono text-xs font-extrabold uppercase tracking-wider text-scarlet flex items-center gap-2">
+                            <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+                            <span>BẢNG ĐIÊU KHẮC SỐ LIỆU 5 GIÂY (6 CHỈ SỐ THỰC CHIẾN — CLICK ĐỂ MỞ MINH CHỨNG)</span>
+                        </div>
+                        <span class="font-mono text-[11px] text-ink/50">CHẠM VÀO TỪNG Ô SỐ LIỆU ĐỂ XEM VIDEO &amp; BÁO CÁO</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3.5">
+                        <!-- Metric 1 -->
+                        <div onclick="openEvidencePage('combat')" class="art-card cursor-pointer bg-white rounded-2xl p-5 border border-hairline flex flex-col justify-between group">
+                            <div class="flex items-center justify-between font-mono text-[10px] text-ink/50 font-bold">
+                                <span>CLB COMBAT ZONE</span>
+                                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-scarlet group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                            </div>
+                            <div class="my-3">
+                                <div data-countup="200000" data-prefix="~" data-format="dot" class="font-mono font-extrabold text-3xl xl:text-4xl text-scarlet tracking-tight">~200.000</div>
+                                <div class="font-serif italic font-bold text-sm text-ink mt-0.5">Lượt xem tự nhiên</div>
+                            </div>
+                            <div class="text-[11px] text-ink/65 border-t border-hairline pt-2">
+                                Tăng <strong class="text-scarlet">&gt;100%</strong> ngay tháng đầu triển khai.
+                            </div>
+                        </div>
+
+                        <!-- Metric 2 -->
+                        <div onclick="openEvidencePage('combat')" class="art-card cursor-pointer bg-white rounded-2xl p-5 border border-hairline flex flex-col justify-between group">
+                            <div class="flex items-center justify-between font-mono text-[10px] text-ink/50 font-bold">
+                                <span>CLB COMBAT ZONE</span>
+                                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-scarlet"></i>
+                            </div>
+                            <div class="my-3">
+                                <div data-countup="145000" data-prefix=">" data-format="dot" class="font-mono font-extrabold text-3xl xl:text-4xl text-ink tracking-tight">&gt;145.000</div>
+                                <div class="font-serif italic font-bold text-sm text-ink mt-0.5">Người tiếp cận &amp; Ads</div>
+                            </div>
+                            <div class="text-[11px] text-ink/65 border-t border-hairline pt-2">
+                                Tin nhắn <strong class="text-scarlet">+200%</strong> • CPA <strong class="text-scarlet">23.000đ</strong>
+                            </div>
+                        </div>
+
+                        <!-- Metric 3 -->
+                        <div onclick="openEvidencePage('matchacha')" class="art-card cursor-pointer bg-white rounded-2xl p-5 border border-hairline flex flex-col justify-between group">
+                            <div class="flex items-center justify-between font-mono text-[10px] text-ink/50 font-bold">
+                                <span>MATCHACHA THỦ ĐỨC</span>
+                                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-scarlet"></i>
+                            </div>
+                            <div class="my-3">
+                                <div data-countup="70000" data-prefix=">" data-format="dot" class="font-mono font-extrabold text-3xl xl:text-4xl text-scarlet tracking-tight">&gt;70.000</div>
+                                <div class="font-serif italic font-bold text-sm text-ink mt-0.5">Lượt xem TikTok (0đ Ads)</div>
+                            </div>
+                            <div class="text-[11px] text-ink/65 border-t border-hairline pt-2">
+                                Hàng loạt video vượt <strong class="text-scarlet">30.000+</strong> views.
+                            </div>
+                        </div>
+
+                        <!-- Metric 4 -->
+                        <div onclick="openEvidencePage('oak')" class="art-card cursor-pointer bg-white rounded-2xl p-5 border border-hairline flex flex-col justify-between group">
+                            <div class="flex items-center justify-between font-mono text-[10px] text-ink/50 font-bold">
+                                <span>OAK CAFÉ</span>
+                                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-scarlet"></i>
+                            </div>
+                            <div class="my-3">
+                                <div data-countup="40" data-prefix="+" data-suffix="%" class="font-mono font-extrabold text-3xl xl:text-4xl text-ink tracking-tight">+40%</div>
+                                <div class="font-serif italic font-bold text-sm text-ink mt-0.5">Tăng trưởng doanh thu</div>
+                            </div>
+                            <div class="text-[11px] text-ink/65 border-t border-hairline pt-2">
+                                Google Maps Ads <strong class="text-scarlet">&gt;25.000</strong> hiển thị.
+                            </div>
+                        </div>
+
+                        <!-- Metric 5 -->
+                        <div onclick="openEvidencePage('nefa')" class="art-card cursor-pointer bg-white rounded-2xl p-5 border border-hairline flex flex-col justify-between group">
+                            <div class="flex items-center justify-between font-mono text-[10px] text-ink/50 font-bold">
+                                <span>NEFA VIỆT NAM</span>
+                                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-scarlet"></i>
+                            </div>
+                            <div class="my-3">
+                                <div data-countup="32" data-suffix=" TRIỆU" class="font-mono font-extrabold text-3xl xl:text-4xl text-scarlet tracking-tight">32 TRIỆU</div>
+                                <div class="font-serif italic font-bold text-sm text-ink mt-0.5">Đỉnh doanh thu Phiên Live</div>
+                            </div>
+                            <div class="text-[11px] text-ink/65 border-t border-hairline pt-2">
+                                Trung bình đạt <strong class="text-scarlet">&gt;10 triệu/ngày</strong>.
+                            </div>
+                        </div>
+
+                        <!-- Metric 6 -->
+                        <div onclick="openEvidencePage('dbc')" class="art-card cursor-pointer bg-scarlet text-white rounded-2xl p-5 border border-scarlet flex flex-col justify-between group shadow-scarlet-glow">
+                            <div class="flex items-center justify-between font-mono text-[10px] text-white/80 font-bold">
+                                <span>DBC 2025 • VECOM</span>
+                                <i data-lucide="trophy" class="w-3.5 h-3.5 text-amber-300"></i>
+                            </div>
+                            <div class="my-3">
+                                <div data-countup="30" data-prefix="TOP " class="font-mono font-extrabold text-3xl xl:text-4xl text-white tracking-tight">TOP 30</div>
+                                <div class="font-serif italic font-bold text-sm text-amber-200 mt-0.5">Toàn Quốc Kinh Doanh Số</div>
+                            </div>
+                            <div class="text-[11px] text-white/90 border-t border-white/20 pt-2">
+                                Dự án Tuần Hoàn Xanh • <strong class="text-amber-300">GPA 3.71</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KINETIC MARQUEE RIBBON -->
+            <div class="mt-14 bg-ink text-alabaster py-3.5 border-y border-ink overflow-hidden">
+                <div class="animate-marquee flex items-center gap-8 font-mono text-xs font-extrabold uppercase tracking-wider">
+                    <span class="text-scarlet">★ SOCIAL MEDIA STRATEGY</span>
+                    <span>•</span>
+                    <span>SHORT-FORM VIDEO PRODUCTION (CAPCUT &amp; CANVA)</span>
+                    <span>•</span>
+                    <span class="text-scarlet">★ PERFORMANCE ADS (META / GOOGLE MAPS / TIKTOK)</span>
+                    <span>•</span>
+                    <span>WORDPRESS / VS CODE / GITHUB / SEO ARCHITECTURE</span>
+                    <span>•</span>
+                    <span class="text-scarlet">★ LIVESTREAM HOSTING (PEAK 32M VNĐ/SESSION)</span>
+                    <span>•</span>
+                    <span>E-COMMERCE MARKETPLACE OPERATIONS</span>
+                    <span>•</span>
+                    <span class="text-scarlet">★ SOCIAL MEDIA STRATEGY</span>
+                    <span>•</span>
+                    <span>SHORT-FORM VIDEO PRODUCTION (CAPCUT &amp; CANVA)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================
+             CHAPTER 02: ASYMMETRIC CAMPAIGN EXHIBITION (3 FLAGSHIP SPOTLIGHTS + 3 CORE)
+             ======================================================================== -->
+        <section id="chapter-02" class="py-16 lg:py-24 hairline-b">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Editorial Header -->
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-10 hairline-b">
+                    <div>
+                        <div class="flex items-center gap-2.5 font-mono text-xs font-extrabold uppercase text-scarlet mb-2">
+                            <span class="px-2.5 py-0.5 rounded bg-blush border border-scarlet/30">CHAPTER 02 / 05</span>
+                            <span>// ASYMMETRIC CAMPAIGN SPOTLIGHT &amp; CHRONOLOGICAL ARCHIVE</span>
+                        </div>
+                        <h2 class="font-serif font-black text-3xl sm:text-5xl text-ink leading-tight">
+                            Triển Lãm <span class="italic text-scarlet">06 Kinh Nghiệm Thực Chiến</span>
+                        </h2>
+                        <p class="text-sm text-ink/70 mt-2 max-w-2xl">
+                            Được sắp xếp chuẩn hóa theo trình tự thời gian (ưu tiên các dự án <strong>“Hiện tại”</strong> lên đầu), tích hợp <strong>Thanh Tóm Tắt 3 Giây</strong>, chỉ số KPI tô đỏ trong câu và nút mở <strong>Trang Minh Chứng Riêng (Video 9:16 + Ảnh Masonry)</strong>.
+                        </p>
+                    </div>
+
+                    <!-- Category Filter Pills -->
+                    <div class="flex flex-wrap gap-2 font-mono text-xs">
+                        <button onclick="filterCampaigns('all')" data-campfilter="all" class="camp-btn px-4 py-2 rounded-full bg-scarlet text-white font-bold uppercase transition-all">Tất cả (06)</button>
+                        <button onclick="filterCampaigns('flagship')" data-campfilter="flagship" class="camp-btn px-4 py-2 rounded-full bg-white border border-hairline text-ink hover:border-scarlet font-bold uppercase transition-all">3 Chiến dịch Đinh ★</button>
+                        <button onclick="filterCampaigns('video')" data-campfilter="video" class="camp-btn px-4 py-2 rounded-full bg-white border border-hairline text-ink hover:border-scarlet font-bold uppercase transition-all">Video &amp; Livestream</button>
+                        <button onclick="filterCampaigns('trade')" data-campfilter="trade" class="camp-btn px-4 py-2 rounded-full bg-white border border-hairline text-ink hover:border-scarlet font-bold uppercase transition-all">Điều phối Xúc tiến TM</button>
+                    </div>
+                </div>
+
+                <!-- PART A: 3 FLAGSHIP SPOTLIGHT CAMPAIGNS (LARGE ASYMMETRIC SHOWCASE) -->
+                <div class="mt-10 space-y-8">
+                    <div class="flex items-center justify-between font-mono text-xs text-scarlet font-extrabold uppercase tracking-wider">
+                        <span>★ PHẦN A — 03 CHIẾN DỊCH CHỦ LỰC (FLAGSHIP CASE STUDIES)</span>
+                        <span class="hidden sm:inline text-ink/50">CLICK VÀO THẺ ĐỂ MỞ TRANG MINH CHỨNG RIÊNG</span>
+                    </div>
+
+                    <!-- FLAGSHIP 01: OAK CAFÉ (08/2026 - Hiện tại) -->
+                    <article data-campcat="flagship social" class="camp-card art-card bg-white rounded-3xl border-2 border-hairline overflow-hidden shadow-gallery">
+                        <!-- Top 3-Second Scan Summary Bar -->
+                        <div class="bg-blush/90 px-6 py-3.5 hairline-b flex flex-wrap items-center justify-between gap-3">
+                            <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+                                <span class="px-2.5 py-1 rounded-md bg-scarlet text-white font-extrabold">FLAGSHIP 01</span>
+                                <span class="px-2.5 py-1 rounded-md bg-white border border-scarlet/25 font-bold text-ink">Vai trò: Social Media</span>
+                                <span class="px-2.5 py-1 rounded-md bg-white border border-hairline text-ink/75">FB • TikTok • IG • Threads • Google Maps</span>
+                            </div>
+                            <div class="flex items-center gap-2 font-mono text-xs">
+                                <span class="px-3 py-1 rounded-full bg-scarlet text-white font-extrabold shadow-sm">
+                                    🔥 Doanh thu +20% (T1) &amp; +40% (T2)
+                                </span>
+                                <span class="px-2.5 py-1 rounded-md bg-ink text-amber-300 font-bold">08/2026 – Hiện tại</span>
+                            </div>
+                        </div>
+
+                        <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <!-- Left Content (7 Cols) -->
+                            <div class="lg:col-span-7 space-y-4">
+                                <div class="flex flex-wrap items-center justify-between gap-2">
+                                    <h3 class="font-serif font-black text-3xl sm:text-4xl text-ink">OAK CAFÉ</h3>
+                                    <!-- Live Channel Link Badge -->
+                                    <div class="flex items-center gap-2">
+                                        <a id="liveLink-oak" href="https://maps.google.com" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-pearl hover:bg-ink hover:text-white text-ink font-mono text-[11px] font-bold transition-colors">
+                                            <i data-lucide="external-link" class="w-3 h-3 text-scarlet"></i>
+                                            <span id="liveLinkLabel-oak">Kênh &amp; Google Maps Thực Tế</span>
+                                        </a>
+                                        <button onclick="promptLiveLink('oak', 'Oak Café')" class="p-1.5 rounded-full bg-pearl hover:bg-scarlet hover:text-white text-ink/60 transition-colors" title="Gắn link kênh thực tế của bạn">
+                                            <i data-lucide="link-2" class="w-3.5 h-3.5"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Polished Bullets with 5-Second Inline KPI Highlights -->
+                                <ul class="space-y-2.5 text-sm sm:text-[15px] text-ink/85 leading-relaxed">
+                                    <li class="flex items-start gap-2.5">
+                                        <span class="font-mono font-extrabold text-scarlet mt-0.5">01.</span>
+                                        <span>Xây dựng <strong>kế hoạch Social Media tổng thể, content calendar</strong> và định hướng truyền thông đa kênh trên <span class="kpi-inline">Facebook, TikTok, Instagram, Threads &amp; Google Business Profile</span>.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <span class="font-mono font-extrabold text-scarlet mt-0.5">02.</span>
+                                        <span>Nghiên cứu phân khúc khách hàng và hành vi tiêu dùng tại khu vực; chuyển kết quả thành <strong>chủ đề nội dung, kịch bản video và thông điệp truyền thông</strong>.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <span class="font-mono font-extrabold text-scarlet mt-0.5">03.</span>
+                                        <span>Trực tiếp <strong>quay chụp, biên tập video, thiết kế hình ảnh</strong>; lập dự toán quảng cáo, xác định mục tiêu và theo dõi chỉ số chiến dịch.</span>
+                                    </li>
+                                </ul>
+
+                                <!-- Quantified Result Callout Box -->
+                                <div class="p-4 rounded-2xl bg-blush/80 border-l-4 border-scarlet space-y-1">
+                                    <div class="font-mono text-[11px] font-extrabold uppercase text-scarlet flex items-center gap-1.5">
+                                        <i data-lucide="trending-up" class="w-4 h-4"></i>
+                                        <span>KẾT QUẢ NỔI BẬT ĐO LƯỜNG:</span>
+                                    </div>
+                                    <p class="text-xs sm:text-sm text-ink leading-relaxed">
+                                        Trong giai đoạn triển khai, doanh thu quán ghi nhận mức <span class="kpi-inline">tăng 20% tháng đầu</span> và <span class="kpi-inline">tăng 40% tháng thứ hai</span>. Chiến dịch quảng cáo hướng đến Google Maps (<span class="kpi-inline">500.000 đồng / 20 ngày</span>) ghi nhận <span class="kpi-inline">&gt;25.000 lượt hiển thị</span> và tiếp cận <span class="kpi-inline">&gt;21.000 người</span>.
+                                    </p>
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <div class="pt-2 flex flex-wrap items-center gap-3">
+                                    <button onclick="openEvidencePage('oak')" class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-scarlet text-white font-mono text-xs font-extrabold uppercase shadow-scarlet-glow hover:bg-ruby transition-all">
+                                        <i data-lucide="folder-open" class="w-4 h-4"></i>
+                                        <span>Mở Trang Minh Chứng Oak Café (Video &amp; Ảnh)</span>
+                                        <span id="badge-count-oak" class="px-2 py-0.5 rounded-full bg-white text-scarlet text-[10px]">4 File</span>
+                                    </button>
+                                    <label class="cursor-pointer inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-pearl hover:bg-ink hover:text-white text-ink font-mono text-xs font-bold uppercase transition-colors">
+                                        <i data-lucide="upload" class="w-3.5 h-3.5 text-scarlet"></i>
+                                        <span>+ Chèn nhanh Video/Ảnh</span>
+                                        <input type="file" accept="image/*,video/*" multiple class="hidden" onchange="quickUploadToProject(event, 'oak')">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Right Visual Mini-Preview Stage (5 Cols) -->
+                            <div onclick="openEvidencePage('oak')" class="lg:col-span-5 cursor-pointer group">
+                                <div class="bg-pearl rounded-2xl p-3.5 border border-hairline group-hover:border-scarlet transition-all">
+                                    <div class="flex items-center justify-between font-mono text-[10px] text-ink/60 mb-2.5 px-1">
+                                        <span class="font-bold text-scarlet">PREVIEW: VIDEO 9:16 + GOOGLE MAPS ADS</span>
+                                        <span class="underline font-bold group-hover:text-scarlet">Xem toàn trang ↗</span>
+                                    </div>
+                                    <div class="grid grid-cols-12 gap-2.5 items-stretch">
+                                        <!-- 9:16 Vertical Mini Frame -->
+                                        <div class="col-span-5 relative aspect-[9/16] rounded-xl overflow-hidden bg-ink border border-ink/15">
+                                            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=600&q=80" alt="Oak Café Reel" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                                            <div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-scarlet text-white font-mono text-[9px] font-bold">9:16 REEL</div>
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <div class="w-9 h-9 rounded-full bg-white/90 text-scarlet flex items-center justify-center shadow">
+                                                    <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Stacked 16:9 & 4:3 Image Frames -->
+                                        <div class="col-span-7 flex flex-col justify-between gap-2.5">
+                                            <div class="relative aspect-video rounded-xl overflow-hidden bg-ink border border-ink/15">
+                                                <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=600&q=80" alt="Google Maps Ads 25K Views" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                                                <div class="absolute bottom-1.5 left-1.5 right-1.5 bg-ink/85 backdrop-blur-xs text-white px-2 py-1 rounded text-[9px] font-mono">
+                                                    📊 Google Maps: &gt;25.000 Hiển thị
+                                                </div>
+                                            </div>
+                                            <div class="relative aspect-video rounded-xl overflow-hidden bg-ink border border-ink/15">
+                                                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80" alt="Content Calendar Oak Cafe" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                                                <div class="absolute bottom-1.5 left-1.5 right-1.5 bg-scarlet/90 text-white px-2 py-1 rounded text-[9px] font-mono font-bold">
+                                                    📅 Content Calendar &amp; Doanh thu +40%
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- FLAGSHIP 02: CLB COMBAT ZONE (06/2025 - Hiện tại) -->
+                    <article data-campcat="flagship social video" class="camp-card art-card bg-white rounded-3xl border-2 border-scarlet/40 overflow-hidden shadow-gallery">
+                        <!-- Top 3-Second Scan Summary Bar -->
+                        <div class="bg-scarlet text-white px-6 py-3.5 flex flex-wrap items-center justify-between gap-3">
+                            <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+                                <span class="px-2.5 py-1 rounded-md bg-ink text-white font-extrabold">FLAGSHIP 02</span>
+                                <span class="px-2.5 py-1 rounded-md bg-white/15 font-bold">Vai trò: Social Media</span>
+                                <span class="px-2.5 py-1 rounded-md bg-white/15">Viral Video • Facebook • Meta Lead Ads</span>
+                            </div>
+                            <div class="flex items-center gap-2 font-mono text-xs">
+                                <span class="px-3 py-1 rounded-full bg-white text-scarlet font-extrabold shadow-sm">
+                                    ⚡ ~200.000 Views • &gt;145.000 Reach • CPA 23.000đ
+                                </span>
+                                <span class="px-2.5 py-1 rounded-md bg-ink text-amber-300 font-bold">06/2025 – Hiện tại</span>
+                            </div>
+                        </div>
+
+                        <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7 space-y-4">
+                                <div class="flex flex-wrap items-center justify-between gap-2">
+                                    <h3 class="font-serif font-black text-3xl sm:text-4xl text-ink">CLB COMBAT ZONE</h3>
+                                    <div class="flex items-center gap-2">
+                                        <a id="liveLink-combat" href="https://facebook.com" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-pearl hover:bg-ink hover:text-white text-ink font-mono text-[11px] font-bold transition-colors">
+                                            <i data-lucide="external-link" class="w-3 h-3 text-scarlet"></i>
+                                            <span id="liveLinkLabel-combat">Fanpage &amp; Reels CLB Combat Zone</span>
+                                        </a>
+                                        <button onclick="promptLiveLink('combat', 'CLB Combat Zone')" class="p-1.5 rounded-full bg-pearl hover:bg-scarlet hover:text-white text-ink/60 transition-colors" title="Gắn link kênh thực tế">
+                                            <i data-lucide="link-2" class="w-3.5 h-3.5"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <ul class="space-y-2.5 text-sm sm:text-[15px] text-ink/85 leading-relaxed">
+                                    <li class="flex items-start gap-2.5">
+                                        <span class="font-mono font-extrabold text-scarlet mt-0.5">01.</span>
+                                        <span>Chủ động <strong>phát triển ý tưởng, viết kịch bản, quay dựng và biên tập video</strong>; triển khai bài viết theo định hướng thương hiệu và tệp khách hàng của câu lạc bộ.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <span class="font-mono font-extrabold text-scarlet mt-0.5">02.</span>
+                                        <span>Phân tích kết quả nội dung để tối ưu chủ đề, tiêu đề, thông điệp và <strong>thời điểm đăng</strong>; theo dõi hiệu quả qua lượt xem, tiếp cận, tương tác và tin nhắn.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <span class="font-mono font-extrabold text-scarlet mt-0.5">03.</span>
+                                        <span>Triển khai <strong>quảng cáo Facebook theo mục tiêu tạo liên hệ</strong>, xây dựng phương án ngân sách và theo dõi sát chi phí trên mỗi lượt liên hệ (CPA).</span>
+                                    </li>
+                                </ul>
+
+                                <div class="p-4 rounded-2xl bg-blush/80 border-l-4 border-scarlet space-y-1.5">
+                                    <div class="font-mono text-[11px] font-extrabold uppercase text-scarlet flex items-center gap-1.5">
+                                        <i data-lucide="flame" class="w-4 h-4"></i>
+                                        <span>KẾT QUẢ NỔI BẬT ĐO LƯỜNG:</span>
+                                    </div>
+                                    <p class="text-xs sm:text-sm text-ink leading-relaxed">
+                                        • Lượt xem nội dung <span class="kpi-inline">tăng trên 100% tháng đầu</span> (~10.000 lượt xem, 7.500 người tiếp cận). Giai đoạn cao điểm, nội dung tự nhiên đạt <span class="kpi-inline">gần 200.000 lượt xem</span>, <span class="kpi-inline">hơn 145.000 người tiếp cận</span> và <span class="kpi-inline">trên 80 tin nhắn</span>; lượng tin nhắn <span class="kpi-inline">tăng ~200% ở tháng thứ hai</span>.
+                                    </p>
+                                    <p class="text-xs sm:text-sm text-ink leading-relaxed">
+                                        • Chiến dịch Facebook Ads với ngân sách khoảng 1 triệu đồng ghi nhận chi phí trung bình chỉ khoảng <span class="kpi-inline">23.000 đồng / lượt liên hệ</span>.
+                                    </p>
+                                </div>
+
+                                <div class="pt-2 flex flex-wrap items-center gap-3">
+                                    <button onclick="openEvidencePage('combat')" class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-scarlet text-white font-mono text-xs font-extrabold uppercase shadow-scarlet-glow hover:bg-ruby transition-all">
+                                        <i data-lucide="folder-open" class="w-4 h-4"></i>
+                                        <span>Mở Trang Minh Chứng Combat Zone (Video &amp; Ảnh)</span>
+                                        <span id="badge-count-combat" class="px-2 py-0.5 rounded-full bg-white text-scarlet text-[10px]">4 File</span>
+                                    </button>
+                                    <label class="cursor-pointer inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-pearl hover:bg-ink hover:text-white text-ink font-mono text-xs font-bold uppercase transition-colors">
+                                        <i data-lucide="upload" class="w-3.5 h-3.5 text-scarlet"></i>
+                                        <span>+ Chèn nhanh Video/Ảnh</span>
+                                        <input type="file" accept="image/*,video/*" multiple class="hidden" onchange="quickUploadToProject(event, 'combat')">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Right Visual Mini-Preview Stage (5 Cols) -->
+                            <div onclick="openEvidencePage('combat')" class="lg:col-span-5 cursor-pointer group">
+                                <div class="bg-pearl rounded-2xl p-3.5 border border-hairline group-hover:border-scarlet transition-all">
+                                    <div class="flex items-center justify-between font-mono text-[10px] text-ink/60 mb-2.5 px-1">
+                                        <span class="font-bold text-scarlet">PREVIEW: REEL ~200K VIEWS + META ADS 23K</span>
+                                        <span class="underline font-bold group-hover:text-scarlet">Xem toàn trang ↗</span>
+                                    </div>
+                                    <div class="grid grid-cols-12 gap-2.5 items-stretch">
+                                        <div class="col-span-5 relative aspect-[9/16] rounded-xl overflow-hidden bg-ink border border-ink/15">
+                                            <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=600&q=80" alt="Combat Zone Viral Video" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                                            <div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-scarlet text-white font-mono text-[9px] font-bold">~200K VIEWS</div>
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <div class="w-9 h-9 rounded-full bg-white/90 text-scarlet flex items-center justify-center shadow">
+                                                    <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-span-7 flex flex-col justify-between gap-2.5">
+                                            <div class="relative aspect-video rounded-xl overflow-hidden bg-ink border border-ink/15">
+                                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Analytics >145K Reach" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                                                <div class="absolute bottom-1.5 left-1.5 right-1.5 bg-ink/85 text-white px-2 py-1 rounded text-[9px] font-mono">
+                                                    📈 Reach &gt;145.000 • Tin nhắn +200%
+                                                </div>
+                                            </div>
+                                            <div class="relative aspect-video rounded-xl overflow-hidden bg-ink border border-ink/15">
+                                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Meta Ads 23.000d CPA" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                                                <div class="absolute bottom-1.5 left-1.5 right-1.5 bg-scarlet/90 text-white px-2 py-1 rounded text-[9px] font-mono font-bold">
+                                                    🎯 Meta Ads: CPA 23.000đ / Liên hệ
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- FLAGSHIP 03: MATCHACHA THỦ ĐỨC (04/2026 - 07/2026) -->
+                    <article data-campcat="flagship social video" class="camp-card art-card bg-white rounded-3xl border-2 border-hairline overflow-hidden shadow-gallery">
+                        <!-- Top 3-Second Scan Summary Bar -->
+                        <div class="bg-blush/90 px-6 py-3.5 hairline-b flex flex-wrap items-center justify-between gap-3">
+                            <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+                                <span class="px-2.5 py-1 rounded-md bg-scarlet text-white font-extrabold">FLAGSHIP 03</span>
+                                <span class="px-2.5 py-1 rounded-md bg-white border border-scarlet/25 font-bold text-ink">Vai trò: Social Media</span>
+                                <span class="px-2.5 py-1 rounded-md bg-white border border-hairline text-ink/75">TikTok Channel Building • 100% Organic</span>
+                            </div>
+                            <div class="flex items-center gap-2 font-mono text-xs">
+                                <span class="px-3 py-1 rounded-full bg-scarlet text-white font-extrabold shadow-sm">
+                                    🚀 &gt;70.000 Views Tự Nhiên • 0đ Quảng Cáo
+                                </span>
+                                <span class="px-2.5 py-1 rounded-md bg-ink text-white font-bold">04/2026 – 07/2026</span>
+                            </div>
+                        </div>
+
+                        <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7 space-y-4">
+                                <div class="flex flex-wrap items-center justify-between gap-2">
+                                    <h3 class="font-serif font-black text-3xl sm:text-4xl text-ink">MATCHACHA THỦ ĐỨC</h3>
+                                    <div class="flex items-center gap-2">
+                                        <a id="liveLink-matchacha" href="https://tiktok.com" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-pearl hover:bg-ink hover:text-white text-ink font-mono text-[11px] font-bold transition-colors">
+                                            <i data-lucide="external-link" class="w-3 h-3 text-scarlet"></i>
+                                            <span id="liveLinkLabel-matchacha">Kênh TikTok Matchacha Thủ Đức</span>
+                                        </a>
+                                        <button onclick="promptLiveLink('matchacha', 'Matchacha Thủ Đức')" class="p-1.5 rounded-full bg-pearl hover:bg-scarlet hover:text-white text-ink/60 transition-colors" title="Gắn link kênh TikTok">
+                                            <i data-lucide="link-2" class="w-3.5 h-3.5"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <ul class="space-y-2.5 text-sm sm:text-[15px] text-ink/85 leading-relaxed">
+                                    <li class="flex items-start gap-2.5">
+                                        <span class="font-mono font-extrabold text-scarlet mt-0.5">01.</span>
+                                        <span>Lập <strong>kế hoạch nội dung TikTok theo tháng</strong>, đề xuất chủ đề video và định hướng phát triển kênh ở giai đoạn xây dựng ban đầu.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <span class="font-mono font-extrabold text-scarlet mt-0.5">02.</span>
+                                        <span>Thực hiện <strong>ý tưởng, kịch bản, quay chụp, dựng video</strong> và theo dõi chỉ số để điều chỉnh nội dung sát theo hành vi người xem.</span>
+                                    </li>
+                                </ul>
+
+                                <div class="p-4 rounded-2xl bg-blush/80 border-l-4 border-scarlet space-y-1">
+                                    <div class="font-mono text-[11px] font-extrabold uppercase text-scarlet flex items-center gap-1.5">
+                                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                                        <span>KẾT QUẢ NỔI BẬT ĐO LƯỜNG:</span>
+                                    </div>
+                                    <p class="text-xs sm:text-sm text-ink leading-relaxed">
+                                        Nhiều video đạt <span class="kpi-inline">trên 30.000 lượt xem tự nhiên</span>; video có hiệu suất cao nhất đạt <span class="kpi-inline">hơn 70.000 lượt xem tự nhiên</span>, hoàn toàn <strong>không sử dụng quảng cáo trả phí</strong>.
+                                    </p>
+                                </div>
+
+                                <div class="pt-2 flex flex-wrap items-center gap-3">
+                                    <button onclick="openEvidencePage('matchacha')" class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-scarlet text-white font-mono text-xs font-extrabold uppercase shadow-scarlet-glow hover:bg-ruby transition-all">
+                                        <i data-lucide="folder-open" class="w-4 h-4"></i>
+                                        <span>Mở Trang Minh Chứng Matchacha (Video &amp; Ảnh)</span>
+                                        <span id="badge-count-matchacha" class="px-2 py-0.5 rounded-full bg-white text-scarlet text-[10px]">3 File</span>
+                                    </button>
+                                    <label class="cursor-pointer inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-pearl hover:bg-ink hover:text-white text-ink font-mono text-xs font-bold uppercase transition-colors">
+                                        <i data-lucide="upload" class="w-3.5 h-3.5 text-scarlet"></i>
+                                        <span>+ Chèn nhanh Video/Ảnh</span>
+                                        <input type="file" accept="image/*,video/*" multiple class="hidden" onchange="quickUploadToProject(event, 'matchacha')">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Right Visual Mini-Preview Stage (5 Cols) -->
+                            <div onclick="openEvidencePage('matchacha')" class="lg:col-span-5 cursor-pointer group">
+                                <div class="bg-pearl rounded-2xl p-3.5 border border-hairline group-hover:border-scarlet transition-all">
+                                    <div class="flex items-center justify-between font-mono text-[10px] text-ink/60 mb-2.5 px-1">
+                                        <span class="font-bold text-scarlet">PREVIEW: TIKTOK 9:16 (&gt;70.000 ORGANIC VIEWS)</span>
+                                        <span class="underline font-bold group-hover:text-scarlet">Xem toàn trang ↗</span>
+                                    </div>
+                                    <div class="grid grid-cols-12 gap-2.5 items-stretch">
+                                        <div class="col-span-5 relative aspect-[9/16] rounded-xl overflow-hidden bg-ink border border-ink/15">
+                                            <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=80" alt="Matchacha TikTok 70K" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                                            <div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-scarlet text-white font-mono text-[9px] font-bold">&gt;70K VIEWS</div>
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <div class="w-9 h-9 rounded-full bg-white/90 text-scarlet flex items-center justify-center shadow">
+                                                    <i data-lucide="play" class="w-4 h-4 fill-current ml-0.5"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-span-7 flex flex-col justify-between gap-2.5">
+                                            <div class="relative aspect-video rounded-xl overflow-hidden bg-ink border border-ink/15">
+                                                <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=600&q=80" alt="Matchacha Series 30K+" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                                                <div class="absolute bottom-1.5 left-1.5 right-1.5 bg-ink/85 text-white px-2 py-1 rounded text-[9px] font-mono">
+                                                    🍵 Chuỗi Video 30.000+ Lượt xem tự nhiên
+                                                </div>
+                                            </div>
+                                            <div class="relative aspect-video rounded-xl overflow-hidden bg-ink border border-ink/15">
+                                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="TikTok Analytics Matchacha" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                                                <div class="absolute bottom-1.5 left-1.5 right-1.5 bg-scarlet/90 text-white px-2 py-1 rounded text-[9px] font-mono font-bold">
+                                                    📊 TikTok Analytics • 0đ Chi phí Ads
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- PART B: 3 CORE SPECIALIZED CAMPAIGNS (3-COLUMN STRUCTURED BENTO GRID) -->
+                <div class="mt-12">
+                    <div class="flex items-center justify-between font-mono text-xs text-ink/70 font-extrabold uppercase tracking-wider mb-5">
+                        <span>◆ PHẦN B — 03 KINH NGHIỆM ĐIỀU PHỐI, VIDEO EDITOR &amp; LIVESTREAM THỰC CHIẾN</span>
+                        <span class="hidden sm:inline">CHUẨN HÓA THEO TRÌNH TỰ THỜI GIAN</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        
+                        <!-- CORE 04: VIỆN GIÁO DỤC QUỐC TẾ IIE (06/2026 - Hiện tại) -->
+                        <article data-campcat="trade" class="camp-card art-card bg-white rounded-3xl border border-hairline p-6 flex flex-col justify-between shadow-gallery">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between font-mono text-[11px]">
+                                    <span class="px-2.5 py-1 rounded bg-ink text-white font-bold">CASE 04 • HIỆN TẠI</span>
+                                    <span class="text-scarlet font-extrabold">06/2026 – Hiện tại</span>
+                                </div>
+
+                                <div>
+                                    <div class="font-mono text-[11px] font-bold uppercase text-scarlet">Trợ lý Trưởng phòng Xúc tiến Thương Mại</div>
+                                    <h3 class="font-serif font-black text-2xl text-ink mt-0.5">VIỆN GIÁO DỤC QUỐC TẾ IIE</h3>
+                                    <p class="text-[11px] font-mono text-ink/50 mt-0.5">Institute of International Education</p>
+                                </div>
+
+                                <!-- 3-Second Tag Strip -->
+                                <div class="flex flex-wrap gap-1.5 font-mono text-[10px]">
+                                    <span class="px-2 py-0.5 rounded bg-blush text-scarlet font-bold">Điều phối liên bộ phận</span>
+                                    <span class="px-2 py-0.5 rounded bg-pearl text-ink">Kế hoạch Nội dung Tháng</span>
+                                    <span class="px-2 py-0.5 rounded bg-pearl text-ink">Bảng kê chi phí &amp; Báo cáo</span>
+                                </div>
+
+                                <ul class="space-y-2 text-xs sm:text-sm text-ink/85 leading-relaxed pt-1">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-scarlet font-bold">•</span>
+                                        <span>Hỗ trợ <strong>điều phối công việc giữa các bộ phận</strong>; sắp xếp lịch trình, xây dựng <span class="kpi-inline">kế hoạch nội dung</span> và theo dõi tiến độ triển khai theo tháng.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-scarlet font-bold">•</span>
+                                        <span>Soạn thảo tài liệu, tổng hợp dữ liệu, hỗ trợ lập <span class="kpi-inline">bảng kê chi phí &amp; báo cáo</span> phục vụ theo dõi hoạt động.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-6 pt-4 hairline-t flex items-center justify-between gap-2">
+                                <button onclick="openEvidencePage('iie')" class="flex-1 py-2.5 px-3 rounded-xl bg-blush hover:bg-scarlet text-scarlet hover:text-white font-mono text-[11px] font-extrabold uppercase transition-all flex items-center justify-center gap-1.5">
+                                    <i data-lucide="folder-open" class="w-3.5 h-3.5"></i>
+                                    <span>Mở Minh Chứng IIE</span>
+                                    <span id="badge-count-iie" class="px-1.5 py-0.2 rounded-full bg-white text-scarlet text-[10px]">2</span>
+                                </button>
+                                <label class="cursor-pointer p-2.5 rounded-xl bg-pearl hover:bg-ink hover:text-white text-ink transition-colors" title="Tải nhanh minh chứng">
+                                    <i data-lucide="upload" class="w-4 h-4"></i>
+                                    <input type="file" accept="image/*,video/*" multiple class="hidden" onchange="quickUploadToProject(event, 'iie')">
+                                </label>
+                            </div>
+                        </article>
+
+                        <!-- CORE 05: HUY THANH JEWELRY (04/2026 - 10/2026) -->
+                        <article data-campcat="video" class="camp-card art-card bg-white rounded-3xl border border-hairline p-6 flex flex-col justify-between shadow-gallery">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between font-mono text-[11px]">
+                                    <span class="px-2.5 py-1 rounded bg-scarlet text-white font-bold">CASE 05 • VIDEO SEO</span>
+                                    <span class="text-ink/70 font-extrabold">04/2026 – 10/2026</span>
+                                </div>
+
+                                <div>
+                                    <div class="font-mono text-[11px] font-bold uppercase text-scarlet">Video Editor – Dự án Đại Sứ Huy Thanh</div>
+                                    <h3 class="font-serif font-black text-2xl text-ink mt-0.5">HUY THANH JEWELRY</h3>
+                                </div>
+
+                                <!-- 3-Second Tag Strip -->
+                                <div class="flex flex-wrap gap-1.5 font-mono text-[10px]">
+                                    <span class="px-2 py-0.5 rounded bg-blush text-scarlet font-bold">20.000 – 30.000 Views/Video</span>
+                                    <span class="px-2 py-0.5 rounded bg-pearl text-ink">TikTok SEO Trang sức cưới</span>
+                                </div>
+
+                                <ul class="space-y-2 text-xs sm:text-sm text-ink/85 leading-relaxed pt-1">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-scarlet font-bold">•</span>
+                                        <span>Sản xuất nội dung video về <strong>nhẫn cưới, cặp đôi, trang sức và không gian cửa hàng</strong>; lên ý tưởng, xây dựng kịch bản và trực tiếp quay dựng.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-scarlet font-bold">•</span>
+                                        <span>Biên tập video TikTok theo xu hướng; tối ưu cách thể hiện gắn với <strong>từ khóa tìm kiếm (TikTok SEO)</strong> ngành trang sức cưới.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-scarlet font-bold">•</span>
+                                        <span><strong>Kết quả nổi bật:</strong> Nhiều video đạt <span class="kpi-inline">20.000 – 30.000 lượt xem</span>, mở rộng mạnh khả năng tiếp cận trên TikTok.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-6 pt-4 hairline-t flex items-center justify-between gap-2">
+                                <button onclick="openEvidencePage('huythanh')" class="flex-1 py-2.5 px-3 rounded-xl bg-blush hover:bg-scarlet text-scarlet hover:text-white font-mono text-[11px] font-extrabold uppercase transition-all flex items-center justify-center gap-1.5">
+                                    <i data-lucide="folder-open" class="w-3.5 h-3.5"></i>
+                                    <span>Mở Minh Chứng Huy Thanh</span>
+                                    <span id="badge-count-huythanh" class="px-1.5 py-0.2 rounded-full bg-white text-scarlet text-[10px]">3</span>
+                                </button>
+                                <label class="cursor-pointer p-2.5 rounded-xl bg-pearl hover:bg-ink hover:text-white text-ink transition-colors" title="Tải nhanh minh chứng">
+                                    <i data-lucide="upload" class="w-4 h-4"></i>
+                                    <input type="file" accept="image/*,video/*" multiple class="hidden" onchange="quickUploadToProject(event, 'huythanh')">
+                                </label>
+                            </div>
+                        </article>
+
+                        <!-- CORE 06: CÔNG TY TNHH NEFA VIỆT NAM (04/2026 - 05/2026) -->
+                        <article data-campcat="video" class="camp-card art-card bg-white rounded-3xl border border-hairline p-6 flex flex-col justify-between shadow-gallery">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between font-mono text-[11px]">
+                                    <span class="px-2.5 py-1 rounded bg-scarlet text-white font-bold">CASE 06 • LIVESTREAM</span>
+                                    <span class="text-ink/70 font-extrabold">04/2026 – 05/2026</span>
+                                </div>
+
+                                <div>
+                                    <div class="font-mono text-[11px] font-bold uppercase text-scarlet">Livestream Host</div>
+                                    <h3 class="font-serif font-black text-2xl text-ink mt-0.5">CÔNG TY TNHH NEFA VIỆT NAM</h3>
+                                </div>
+
+                                <!-- 3-Second Tag Strip -->
+                                <div class="flex flex-wrap gap-1.5 font-mono text-[10px]">
+                                    <span class="px-2 py-0.5 rounded bg-blush text-scarlet font-bold">Đỉnh 32 Triệu VNĐ/Phiên</span>
+                                    <span class="px-2 py-0.5 rounded bg-pearl text-ink">TB &gt;10 Triệu/Ngày</span>
+                                </div>
+
+                                <ul class="space-y-2 text-xs sm:text-sm text-ink/85 leading-relaxed pt-1">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-scarlet font-bold">•</span>
+                                        <span>Chuẩn bị <strong>kịch bản phiên livestream, giới thiệu sản phẩm</strong>, tương tác giữ chân người xem, tư vấn và hỗ trợ khách đặt hàng trực tiếp.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-scarlet font-bold">•</span>
+                                        <span><strong>Kết quả nổi bật:</strong> Doanh thu các phiên livestream tham gia đạt trung bình <span class="kpi-inline">trên 10 triệu đồng/ngày</span>; phiên cao nhất ghi nhận <span class="kpi-inline">32 triệu đồng</span>.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-6 pt-4 hairline-t flex items-center justify-between gap-2">
+                                <button onclick="openEvidencePage('nefa')" class="flex-1 py-2.5 px-3 rounded-xl bg-blush hover:bg-scarlet text-scarlet hover:text-white font-mono text-[11px] font-extrabold uppercase transition-all flex items-center justify-center gap-1.5">
+                                    <i data-lucide="folder-open" class="w-3.5 h-3.5"></i>
+                                    <span>Mở Minh Chứng NEFA</span>
+                                    <span id="badge-count-nefa" class="px-1.5 py-0.2 rounded-full bg-white text-scarlet text-[10px]">3</span>
+                                </button>
+                                <label class="cursor-pointer p-2.5 rounded-xl bg-pearl hover:bg-ink hover:text-white text-ink transition-colors" title="Tải nhanh minh chứng">
+                                    <i data-lucide="upload" class="w-4 h-4"></i>
+                                    <input type="file" accept="image/*,video/*" multiple class="hidden" onchange="quickUploadToProject(event, 'nefa')">
+                                </label>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================
+             CHAPTER 03: FEATURED TECH PROJECT (SPORT HUB) & NATIONAL AWARD (DBC 2025)
+             ======================================================================== -->
+        <section id="chapter-03" class="py-16 lg:py-24 bg-white hairline-b">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                    <div>
+                        <div class="flex items-center gap-2.5 font-mono text-xs font-extrabold uppercase text-scarlet mb-2">
+                            <span class="px-2.5 py-0.5 rounded bg-blush border border-scarlet/30">CHAPTER 03 / 05</span>
+                            <span>// DỰ ÁN NỔI BẬT &amp; GIẢI THƯỞNG QUỐC GIA</span>
+                        </div>
+                        <h2 class="font-serif font-black text-3xl sm:text-5xl text-ink">
+                            Dự Án Công Nghệ SEO &amp; <span class="italic text-scarlet">Top 30 Toàn Quốc DBC 2025</span>
+                        </h2>
+                    </div>
+                    <p class="text-xs sm:text-sm text-ink/65 max-w-md">
+                        Tách biệt rõ ràng nhóm <strong>Dự án phát triển Website/SEO</strong> và <strong>Giải thưởng Học thuật Quốc gia</strong> để nhà tuyển dụng đánh giá đúng tư duy công nghệ &amp; R&amp;D của bạn.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    
+                    <!-- Left Showcase: SPORT HUB - WEBSITE THỂ THAO (6 Cols) -->
+                    <div class="lg:col-span-6 art-card bg-alabaster rounded-3xl border-2 border-hairline p-7 sm:p-8 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
+                                <span class="px-3 py-1 rounded-full bg-ink text-white font-extrabold">DỰ ÁN NỔI BẬT • WEB &amp; SEO</span>
+                                <span class="text-scarlet font-extrabold">09/2025 – Hiện tại</span>
+                            </div>
+
+                            <div>
+                                <div class="font-mono text-xs uppercase text-scarlet font-bold">Website Development &amp; SEO</div>
+                                <h3 class="font-serif font-black text-2xl sm:text-3xl text-ink mt-1">
+                                    SPORT HUB — WEBSITE THỂ THAO
+                                </h3>
+                            </div>
+
+                            <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                                <span class="px-2.5 py-1 rounded-lg bg-white border border-hairline font-bold">Sitemap &amp; UI Architecture</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-white border border-hairline font-bold">GitHub &amp; VS Code</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-white border border-hairline font-bold">AI SEO Content</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-blush text-scarlet font-bold">Google Ads</span>
+                            </div>
+
+                            <ul class="space-y-2.5 text-sm text-ink/85 leading-relaxed pt-2">
+                                <li class="flex items-start gap-2.5">
+                                    <span class="font-mono font-extrabold text-scarlet">01.</span>
+                                    <span>Thiết kế <span class="kpi-inline">sitemap, cấu trúc trang và giao diện website</span>; phát triển và triển khai bằng <strong>GitHub, Visual Studio Code</strong> và các công cụ hỗ trợ.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="font-mono font-extrabold text-scarlet">02.</span>
+                                    <span>Tích hợp công cụ hỗ trợ tạo <span class="kpi-inline">nội dung SEO, liên kết bài viết (Internal Link)</span> và tối ưu khả năng hiển thị; tham gia triển khai <strong>Google Ads</strong> để quảng bá nội dung website.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-8 pt-5 hairline-t flex flex-wrap items-center justify-between gap-3">
+                            <button onclick="openEvidencePage('sporthub')" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-ink hover:bg-scarlet text-white font-mono text-xs font-extrabold uppercase transition-colors">
+                                <i data-lucide="globe" class="w-4 h-4"></i>
+                                <span>Mở Minh Chứng Giao Diện &amp; Sitemap Sport Hub</span>
+                                <span id="badge-count-sporthub" class="px-2 py-0.5 rounded-full bg-scarlet text-white text-[10px]">3</span>
+                            </button>
+                            <button onclick="promptLiveLink('sporthub', 'Sport Hub Website')" class="px-3.5 py-3 rounded-xl bg-white border border-hairline hover:border-scarlet font-mono text-xs font-bold text-ink">
+                                <i data-lucide="link" class="w-3.5 h-3.5 inline mr-1 text-scarlet"></i>Gắn Link GitHub/Web
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Showcase: TOP 30 TOÀN QUỐC DBC 2025 (6 Cols - Royal Crimson Highlight) -->
+                    <div class="lg:col-span-6 art-card bg-gradient-to-br from-scarlet via-scarlet to-ruby text-white rounded-3xl p-7 sm:p-8 flex flex-col justify-between shadow-scarlet-glow relative overflow-hidden">
+                        <div class="space-y-4 relative z-10">
+                            <div class="flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
+                                <span class="px-3 py-1 rounded-full bg-amber-300 text-ink font-extrabold">🏆 TOP 30 TOÀN QUỐC • DBC 2025</span>
+                                <span class="text-white/90 font-bold">VECOM &amp; VECOMNET</span>
+                            </div>
+
+                            <div>
+                                <div class="font-mono text-xs uppercase text-amber-200 font-bold">Vai trò: Thành viên Nghiên cứu &amp; Phát triển Dự án (R&amp;D)</div>
+                                <h3 class="font-serif font-black text-2xl sm:text-3xl text-white mt-1 leading-tight">
+                                    SINH VIÊN KINH DOANH SỐ 2025 (DIGITAL BUSINESS CONTEST)
+                                </h3>
+                                <div class="mt-2 inline-block px-3.5 py-1.5 rounded-xl bg-white/15 border border-white/25 font-sans text-xs sm:text-sm font-bold">
+                                    🌱 Dự án: TUẦN HOÀN XANH – Thúc đẩy tiêu dùng xanh và giảm thiểu rác thải
+                                </div>
+                            </div>
+
+                            <ul class="space-y-2 text-xs sm:text-sm text-white/95 leading-relaxed pt-1">
+                                <li class="flex items-start gap-2">
+                                    <span class="font-bold text-amber-300">•</span>
+                                    <span>Phối hợp nghiên cứu <strong>xu hướng tiêu dùng bền vững, hành vi khách hàng</strong> và các giải pháp giảm thiểu rác thải trong đời sống.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="font-bold text-amber-300">•</span>
+                                    <span>Tham gia xây dựng ý tưởng, phát triển <strong>mô hình kinh doanh tuần hoàn</strong> và định hướng nội dung truyền thông nâng cao nhận thức tiêu dùng xanh.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="font-bold text-amber-300">•</span>
+                                    <span>Xây dựng nội dung đề án, tổng hợp dữ liệu, <strong>phân tích tính khả thi</strong> và phối hợp cùng nhóm hoàn thiện dự án dự thi đạt <strong>TOP 30 TOÀN QUỐC</strong>.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-8 pt-5 border-t border-white/20 flex flex-wrap items-center justify-between gap-3 relative z-10">
+                            <button onclick="openEvidencePage('dbc')" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-scarlet hover:bg-ink hover:text-white font-mono text-xs font-extrabold uppercase transition-colors shadow">
+                                <i data-lucide="award" class="w-4 h-4"></i>
+                                <span>Xem Bằng Khen Top 30 &amp; Pitch Deck Tuần Hoàn Xanh</span>
+                                <span id="badge-count-dbc" class="px-2 py-0.5 rounded-full bg-scarlet text-white text-[10px]">3</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================
+             CHAPTER 04: VISUAL SKILL BENTO PILLS & TOOL ECOSYSTEM (8 HARD + 5 SOFT)
+             ======================================================================== -->
+        <section id="chapter-04" class="py-16 lg:py-24 hairline-b">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-10 gap-6">
+                    <div>
+                        <div class="flex items-center gap-2.5 font-mono text-xs font-extrabold uppercase text-scarlet mb-2">
+                            <span class="px-2.5 py-0.5 rounded bg-blush border border-scarlet/30">CHAPTER 04 / 05</span>
+                            <span>// FULL-STACK MARKETING ARSENAL (CHUẨN HÓA THUẬT NGỮ)</span>
+                        </div>
+                        <h2 class="font-serif font-black text-3xl sm:text-5xl text-ink">
+                            Hệ Sinh Thái <span class="italic text-scarlet">08 Kỹ Năng Chuyên Môn &amp; Công Cụ</span>
+                        </h2>
+                    </div>
+
+                    <!-- Software & Platform Pill Strip -->
+                    <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                        <span class="px-3 py-1.5 rounded-full bg-ink text-white font-bold">Canva Pro</span>
+                        <span class="px-3 py-1.5 rounded-full bg-scarlet text-white font-bold">Generative AI</span>
+                        <span class="px-3 py-1.5 rounded-full bg-ink text-white font-bold">CapCut</span>
+                        <span class="px-3 py-1.5 rounded-full bg-white border border-hairline font-bold">Meta Ads</span>
+                        <span class="px-3 py-1.5 rounded-full bg-white border border-hairline font-bold">Google Ads</span>
+                        <span class="px-3 py-1.5 rounded-full bg-white border border-hairline font-bold">TikTok Ads</span>
+                        <span class="px-3 py-1.5 rounded-full bg-white border border-hairline font-bold">WordPress &amp; SEO</span>
+                        <span class="px-3 py-1.5 rounded-full bg-white border border-hairline font-bold">VS Code &amp; GitHub</span>
+                        <span class="px-3 py-1.5 rounded-full bg-white border border-hairline font-bold">Streamlit API</span>
+                        <span class="px-3 py-1.5 rounded-full bg-white border border-hairline font-bold">Excel Analytics</span>
+                    </div>
+                </div>
+
+                <!-- 8 Visual Skill Bento Cards (4x2 Grid) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                    
+                    <!-- Skill 01 -->
+                    <div class="art-card bg-white rounded-3xl p-6 border border-hairline flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-10 h-10 rounded-2xl bg-blush text-scarlet flex items-center justify-center">
+                                    <i data-lucide="palette" class="w-5 h-5"></i>
+                                </div>
+                                <span class="font-mono text-xs font-extrabold text-scarlet">SKILL 01</span>
+                            </div>
+                            <h3 class="font-serif font-bold text-lg text-ink">Thiết kế hình ảnh: Canva &amp; AI</h3>
+                            <p class="text-xs sm:text-sm text-ink/75 mt-2 leading-relaxed">
+                                Thiết kế bài đăng, hình ảnh và ấn phẩm truyền thông bằng <strong>Canva</strong>; ứng dụng công cụ <strong>AI (Trí tuệ nhân tạo)</strong> hỗ trợ ý tưởng và sáng tạo hình ảnh.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 hairline-t flex flex-wrap gap-1 font-mono text-[10px] text-scarlet font-bold">
+                            <span>#Canva</span><span>•</span><span>#GenerativeAI</span><span>•</span><span>#KeyVisual</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill 02 -->
+                    <div class="art-card bg-white rounded-3xl p-6 border border-hairline flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-10 h-10 rounded-2xl bg-blush text-scarlet flex items-center justify-center">
+                                    <i data-lucide="clapperboard" class="w-5 h-5"></i>
+                                </div>
+                                <span class="font-mono text-xs font-extrabold text-scarlet">SKILL 02</span>
+                            </div>
+                            <h3 class="font-serif font-bold text-lg text-ink">Biên tập video ngắn: CapCut &amp; Canva</h3>
+                            <p class="text-xs sm:text-sm text-ink/75 mt-2 leading-relaxed">
+                                Xây dựng kịch bản, caption; quay chụp, cắt ghép và dựng video ngắn bằng <strong>CapCut</strong>, điều chỉnh định dạng chuẩn <strong>TikTok và Facebook Reels</strong>.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 hairline-t flex flex-wrap gap-1 font-mono text-[10px] text-scarlet font-bold">
+                            <span>#CapCut</span><span>•</span><span>#TikTokReels</span><span>•</span><span>#Scriptwriting</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill 03 -->
+                    <div class="art-card bg-white rounded-3xl p-6 border border-hairline flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-10 h-10 rounded-2xl bg-blush text-scarlet flex items-center justify-center">
+                                    <i data-lucide="code-2" class="w-5 h-5"></i>
+                                </div>
+                                <span class="font-mono text-xs font-extrabold text-scarlet">SKILL 03</span>
+                            </div>
+                            <h3 class="font-serif font-bold text-lg text-ink">Website / Landing Page / SEO</h3>
+                            <p class="text-xs sm:text-sm text-ink/75 mt-2 leading-relaxed">
+                                Sử dụng <strong>WordPress, Visual Studio Code, GitHub, Streamlit</strong> để triển khai giao diện; thiết lập <strong>sitemap, tối ưu nội dung SEO</strong> và tích hợp công cụ hỗ trợ qua <strong>API</strong>.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 hairline-t flex flex-wrap gap-1 font-mono text-[10px] text-scarlet font-bold">
+                            <span>#WordPress</span><span>•</span><span>#VSCode</span><span>•</span><span>#GitHub</span><span>•</span><span>#SEO</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill 04 -->
+                    <div class="art-card bg-white rounded-3xl p-6 border border-hairline flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-10 h-10 rounded-2xl bg-blush text-scarlet flex items-center justify-center">
+                                    <i data-lucide="calendar-range" class="w-5 h-5"></i>
+                                </div>
+                                <span class="font-mono text-xs font-extrabold text-scarlet">SKILL 04</span>
+                            </div>
+                            <h3 class="font-serif font-bold text-lg text-ink">Social Media Strategy &amp; Planning</h3>
+                            <p class="text-xs sm:text-sm text-ink/75 mt-2 leading-relaxed">
+                                Phân tích nhóm khách hàng mục tiêu; xây dựng định hướng nội dung, <strong>content calendar</strong>, chủ đề và lịch đăng theo mục tiêu chiến dịch.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 hairline-t flex flex-wrap gap-1 font-mono text-[10px] text-scarlet font-bold">
+                            <span>#ContentCalendar</span><span>•</span><span>#AudienceInsight</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill 05 -->
+                    <div class="art-card bg-white rounded-3xl p-6 border border-hairline flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-10 h-10 rounded-2xl bg-blush text-scarlet flex items-center justify-center">
+                                    <i data-lucide="share-2" class="w-5 h-5"></i>
+                                </div>
+                                <span class="font-mono text-xs font-extrabold text-scarlet">SKILL 05</span>
+                            </div>
+                            <h3 class="font-serif font-bold text-lg text-ink">Quản lý kênh đa nền tảng</h3>
+                            <p class="text-xs sm:text-sm text-ink/75 mt-2 leading-relaxed">
+                                Triển khai nội dung đồng bộ trên <strong>Facebook, TikTok, Instagram, Threads và Google Business Profile</strong>; điều chỉnh định dạng theo đặc thù từng kênh.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 hairline-t flex flex-wrap gap-1 font-mono text-[10px] text-scarlet font-bold">
+                            <span>#OmniChannel</span><span>•</span><span>#GoogleBusiness</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill 06 -->
+                    <div class="art-card bg-white rounded-3xl p-6 border border-hairline flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-10 h-10 rounded-2xl bg-blush text-scarlet flex items-center justify-center">
+                                    <i data-lucide="line-chart" class="w-5 h-5"></i>
+                                </div>
+                                <span class="font-mono text-xs font-extrabold text-scarlet">SKILL 06</span>
+                            </div>
+                            <h3 class="font-serif font-bold text-lg text-ink">Data Analysis &amp; Reporting</h3>
+                            <p class="text-xs sm:text-sm text-ink/75 mt-2 leading-relaxed">
+                                Sử dụng <strong>Excel</strong> tổng hợp và trực quan hóa số liệu; theo dõi lượt xem, tiếp cận, tương tác, tin nhắn, <strong>chi phí/lượt liên hệ (CPA)</strong> và hiệu quả chiến dịch.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 hairline-t flex flex-wrap gap-1 font-mono text-[10px] text-scarlet font-bold">
+                            <span>#ExcelReporting</span><span>•</span><span>#CPAOptimization</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill 07 -->
+                    <div class="art-card bg-white rounded-3xl p-6 border border-hairline flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-10 h-10 rounded-2xl bg-blush text-scarlet flex items-center justify-center">
+                                    <i data-lucide="megaphone" class="w-5 h-5"></i>
+                                </div>
+                                <span class="font-mono text-xs font-extrabold text-scarlet">SKILL 07</span>
+                            </div>
+                            <h3 class="font-serif font-bold text-lg text-ink">Advertising Đa Nền Tảng</h3>
+                            <p class="text-xs sm:text-sm text-ink/75 mt-2 leading-relaxed">
+                                Thiết lập kế hoạch ngân sách, lựa chọn nhóm khách hàng và mục tiêu quảng cáo; có kinh nghiệm thực chiến với <strong>Meta Ads, Google Ads và TikTok Ads</strong>.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 hairline-t flex flex-wrap gap-1 font-mono text-[10px] text-scarlet font-bold">
+                            <span>#MetaAds</span><span>•</span><span>#GoogleAds</span><span>•</span><span>#TikTokAds</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill 08 -->
+                    <div class="art-card bg-white rounded-3xl p-6 border border-hairline flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-10 h-10 rounded-2xl bg-blush text-scarlet flex items-center justify-center">
+                                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                                </div>
+                                <span class="font-mono text-xs font-extrabold text-scarlet">SKILL 08</span>
+                            </div>
+                            <h3 class="font-serif font-bold text-lg text-ink">Vận hành sàn Thương mại điện tử</h3>
+                            <p class="text-xs sm:text-sm text-ink/75 mt-2 leading-relaxed">
+                                Quản lý gian hàng, đăng tải và tối ưu sản phẩm; theo dõi tồn kho, xử lý đơn hàng, CSKH, giải quyết đổi trả và tổng hợp báo cáo bán hàng.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 hairline-t flex flex-wrap gap-1 font-mono text-[10px] text-scarlet font-bold">
+                            <span>#EcommerceOps</span><span>•</span><span>#HUGSCertified</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 5 Soft Skills Horizontal Architectural Bar -->
+                <div class="mt-8 bg-ink text-white rounded-3xl p-6 sm:p-8">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-6">
+                        <div class="font-mono text-xs font-extrabold uppercase text-scarlet tracking-widest">
+                            // 05 KỸ NĂNG MỀM BỔ TRỢ QUẢN TRỊ &amp; TRUYỀN THÔNG
+                        </div>
+                        <span class="font-mono text-xs text-white/60">360° MARKETER SOFT SKILLS</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="font-mono text-xs font-extrabold text-amber-300">01. Lãnh đạo &amp; Nhóm</div>
+                            <p class="text-xs text-white/80 mt-1">Phân công, điều phối nhóm hiệu quả.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="font-mono text-xs font-extrabold text-amber-300">02. Giao tiếp &amp; MC</div>
+                            <p class="text-xs text-white/80 mt-1">Tự tin trình bày, giàu kinh nghiệm làm MC sự kiện.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="font-mono text-xs font-extrabold text-amber-300">03. Tư duy phân tích</div>
+                            <p class="text-xs text-white/80 mt-1">Tư duy logic, giải quyết vấn đề có hệ thống.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="font-mono text-xs font-extrabold text-amber-300">04. Quản lý thời gian</div>
+                            <p class="text-xs text-white/80 mt-1">Sắp xếp công việc khoa học, đảm bảo tiến độ.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+                            <div class="font-mono text-xs font-extrabold text-amber-300">05. Sáng tạo &amp; Thích ứng</div>
+                            <p class="text-xs text-white/80 mt-1">Chủ động đề xuất ý tưởng, linh hoạt trước thay đổi.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================
+             CHAPTER 05: ACADEMIC PEDIGREE (GPA 3.71), MC STAGE & HUGS CERTIFICATION
+             ======================================================================== -->
+        <section id="chapter-05" class="py-16 lg:py-24 bg-white hairline-b">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="mb-10">
+                    <div class="flex items-center gap-2.5 font-mono text-xs font-extrabold uppercase text-scarlet mb-2">
+                        <span class="px-2.5 py-0.5 rounded bg-blush border border-scarlet/30">CHAPTER 05 / 05</span>
+                        <span>// NỀN TẢNG HỌC VẤN, HOẠT ĐỘNG DẪN CHƯƠNG TRÌNH (MC) &amp; CHỨNG CHỈ</span>
+                    </div>
+                    <h2 class="font-serif font-black text-3xl sm:text-5xl text-ink">
+                        Học Thuật Xuất Sắc &amp; <span class="italic text-scarlet">Dấu Ấn Năng Động</span>
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+                    
+                    <!-- Card 1: Học vấn ĐH Hùng Vương TP.HCM (4 Cols) -->
+                    <div class="lg:col-span-4 bg-alabaster rounded-3xl p-7 border border-hairline flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between font-mono text-xs">
+                                <span class="px-2.5 py-1 rounded bg-scarlet text-white font-bold">HỌC VẤN</span>
+                                <span class="font-bold text-ink/70">2024 – 2027 (dự kiến)</span>
+                            </div>
+                            <div>
+                                <h3 class="font-serif font-black text-2xl text-ink">ĐẠI HỌC HÙNG VƯƠNG TP.HCM</h3>
+                                <p class="text-sm font-bold text-scarlet mt-1">Sinh viên ngành Thương Mại Điện Tử</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-white border border-scarlet/30 flex items-center justify-between">
+                                <div>
+                                    <div class="font-mono text-[10px] uppercase text-ink/50 font-bold">ĐIỂM TRUNG BÌNH TÍCH LŨY</div>
+                                    <div class="font-mono font-extrabold text-3xl text-scarlet">GPA: 3.71 / 4.0</div>
+                                </div>
+                                <i data-lucide="graduation-cap" class="w-9 h-9 text-scarlet/80"></i>
+                            </div>
+                            <ul class="space-y-2 text-sm text-ink/85 pt-1">
+                                <li class="flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-scarlet"></span>
+                                    <span>Đạt <strong>học bổng xuất sắc</strong> ở các kỳ học.</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-scarlet"></span>
+                                    <span>Đạt <strong>học bổng khuyến khích học tập</strong> cấp Khoa.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-6 pt-4 hairline-t font-mono text-[11px] text-ink/50">
+                            DHV UNIVERSITY • E-COMMERCE HONORS
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Hoạt động MC & Liên Chi Đoàn (4 Cols) -->
+                    <div class="lg:col-span-4 bg-alabaster rounded-3xl p-7 border border-hairline flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between font-mono text-xs">
+                                <span class="px-2.5 py-1 rounded bg-ink text-white font-bold">HOẠT ĐỘNG &amp; MC</span>
+                                <span class="font-bold text-scarlet">2025 – 2026</span>
+                            </div>
+                            <h3 class="font-serif font-black text-2xl text-ink">MC Sự Kiện &amp; Ủy Viên Đoàn – Hội</h3>
+                            <ul class="space-y-3 text-sm text-ink/85 leading-relaxed">
+                                <li class="flex items-start gap-2.5">
+                                    <span class="font-mono font-bold text-scarlet">01.</span>
+                                    <span>Làm <strong>MC dẫn chương trình</strong> cho các sự kiện: <em>“Chào đón tân sinh viên 2025”</em>, chương trình <em>“Vầng trăng yêu thương 2025”</em>, <em>Hội trại khoa QTKD – Marketing 2025</em>, Workshop <em>“Ứng dụng Thương mại điện tử trong thời đại số”</em> và các sự kiện cấp Khoa/Trường.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="font-mono font-bold text-scarlet">02.</span>
+                                    <span>Tham gia <strong>Liên Chi Đoàn</strong> giữ vị trí <strong>Ủy viên Đoàn – Hội nhiệm kỳ 2025 – 2026</strong>, tích cực đóng góp trong các hoạt động đoàn hội cấp trường và thành phố.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-6 pt-4 hairline-t font-mono text-[11px] text-scarlet font-bold">
+                            🎙️ PUBLIC SPEAKING &amp; EVENT HOSTING
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Chứng chỉ HUGS & Sở thích chuyên môn (4 Cols) -->
+                    <div class="lg:col-span-4 bg-alabaster rounded-3xl p-7 border border-hairline flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between font-mono text-xs">
+                                <span class="px-2.5 py-1 rounded bg-scarlet text-white font-bold">CHỨNG CHỈ &amp; ĐAM MÊ</span>
+                                <span class="font-bold text-ink/70">VERIFIED</span>
+                            </div>
+                            <h3 class="font-serif font-black text-2xl text-ink">Chứng Nhận Chuyên Môn &amp; Định Hướng</h3>
+                            
+                            <div class="p-4 rounded-2xl bg-blush border border-scarlet/30 space-y-1">
+                                <div class="font-mono text-[10px] uppercase text-scarlet font-extrabold">CHỨNG NHẬN ĐÀO TẠO THỰC CHIẾN</div>
+                                <div class="font-serif font-bold text-base text-ink">
+                                    📜 Chứng nhận “Vận hành sàn Thương Mại Điện Tử” — Công ty HUGS
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-white border border-hairline">
+                                <div class="font-mono text-[10px] uppercase text-ink/50 font-bold mb-1">SỞ THÍCH NGHIÊN CỨU</div>
+                                <p class="text-xs sm:text-sm text-ink/80 italic leading-relaxed">
+                                    “Tôi đặc biệt yêu thích việc tìm tòi và nghiên cứu các vấn đề liên quan đến Marketing và Thương mại điện tử, luôn chủ động cập nhật xu hướng, khám phá cách thức vận hành thực tế và áp dụng những kiến thức mới vào công việc.”
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-4 hairline-t font-mono text-[11px] text-ink/50">
+                            CONTINUOUS LEARNING &amp; GROWTH MINDSET
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================================
+         VIEW 2: DEDICATED FULL-PAGE EVIDENCE SUB-VIEW ("TRANG MINH CHỨNG RIÊNG")
+         - Dual-Stage Split View (Left: Video 9:16/16:9 | Right: Auto-Sizing Image Masonry)
+         - Stacked View Toggle
+         - Strategic Proof Checklist + Editable Caption Pins
+         - Sticky macOS-Style Bottom Dock to switch between all 8 campaigns
+         ============================================================================ -->
+    <section id="evidenceSubPage" class="hidden min-h-screen bg-alabaster pb-32 pt-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Top Navigation & View Mode Switcher Bar -->
+            <div class="bg-white rounded-3xl p-4 sm:p-6 border-2 border-ink shadow-gallery mb-8">
+                <div class="flex flex-wrap items-center justify-between gap-4 pb-4 hairline-b">
+                    <button onclick="closeEvidencePage()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-ink text-white hover:bg-scarlet font-mono text-xs font-extrabold uppercase transition-colors">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        <span>Quay lại Hồ sơ chính</span>
+                    </button>
+
+                    <div class="flex flex-wrap items-center gap-2">
+                        <!-- Dual-Stage vs Stacked Mode Switcher -->
+                        <div class="inline-flex rounded-xl bg-pearl p-1 border border-hairline font-mono text-xs">
+                            <button id="modeBtnSplit" onclick="setEvidenceLayoutMode('split')" class="px-3.5 py-1.5 rounded-lg bg-scarlet text-white font-bold transition-all">
+                                Song Song (Video + Ảnh)
+                            </button>
+                            <button id="modeBtnStacked" onclick="setEvidenceLayoutMode('stacked')" class="px-3.5 py-1.5 rounded-lg text-ink hover:text-scarlet font-bold transition-all">
+                                Tách 2 Tầng Rộng
+                            </button>
+                        </div>
+
+                        <!-- Multi-file Upload Trigger -->
+                        <label class="cursor-pointer inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-scarlet text-white hover:bg-ruby font-mono text-xs font-extrabold uppercase shadow-scarlet-glow transition-all">
+                            <i data-lucide="upload-cloud" class="w-4 h-4"></i>
+                            <span>+ Tải Thêm Nhiều Video / Ảnh Minh Chứng</span>
+                            <input id="evidencePageMultiInput" type="file" accept="image/*,video/*" multiple class="hidden" onchange="handleEvidencePageUpload(event)">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Active Project Header Info & Strategic Proof Recommendation Banner -->
+                <div class="pt-4 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                    <div class="lg:col-span-7 space-y-1.5">
+                        <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+                            <span id="evProjectPeriod" class="px-2.5 py-0.5 rounded bg-blush text-scarlet font-extrabold">06/2025 – Hiện tại</span>
+                            <span id="evProjectRole" class="text-ink/70 font-bold uppercase">Social Media</span>
+                            <a id="evProjectLiveLink" href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-scarlet hover:underline font-bold ml-2">
+                                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                <span>Mở link kênh thực tế</span>
+                            </a>
+                        </div>
+                        <h2 id="evProjectTitle" class="font-serif font-black text-3xl sm:text-4xl text-ink">
+                            CLB COMBAT ZONE
+                        </h2>
+                        <p id="evProjectKpiSummary" class="text-xs sm:text-sm font-mono font-bold text-scarlet">
+                            🔥 ~200.000 Lượt xem tự nhiên • &gt;145.000 Người tiếp cận • +200% Tin nhắn • CPA 23.000đ/liên hệ
+                        </p>
+                    </div>
+
+                    <!-- Strategic Proof Checklist Box (From Content Review) -->
+                    <div class="lg:col-span-5 bg-blush/90 rounded-2xl p-4 border border-scarlet/30">
+                        <div class="font-mono text-[10px] font-extrabold uppercase text-scarlet flex items-center gap-1.5 mb-1">
+                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+                            <span>GỢI Ý BỘ MINH CHỨNG ĐẮT GIÁ NHẤT NÊN CHÈN:</span>
+                        </div>
+                        <p id="evProjectChecklistHint" class="text-xs text-ink/85 leading-relaxed">
+                            Hãy chèn 2–3 video Reels/TikTok dọc (9:16) đạt ~200.000 views ở cột trái + Ảnh chụp màn hình Facebook Analytics (&gt;145.000 reach, +200% tin nhắn) và trình quản lý Meta Ads (CPA 23.000đ) ở cột phải.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DUAL-STAGE OR STACKED CONTAINER -->
+            <div id="evidenceDualStageGrid" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- ============================================================
+                     LAYOUT PART 01: VIDEO PROOF STAGE (AUTO-SIZING 9:16 & 16:9)
+                     ============================================================ -->
+                <div id="videoStageCol" class="lg:col-span-5 bg-white rounded-3xl p-5 sm:p-6 border border-hairline shadow-gallery">
+                    <div class="flex items-center justify-between pb-3 mb-4 hairline-b">
+                        <div class="flex items-center gap-2">
+                            <span class="w-8 h-8 rounded-xl bg-scarlet text-white flex items-center justify-center">
+                                <i data-lucide="film" class="w-4 h-4"></i>
+                            </span>
+                            <div>
+                                <h3 class="font-serif font-extrabold text-lg text-ink leading-none">Bố Cục 01 — Video Minh Chứng</h3>
+                                <p class="font-mono text-[10px] text-ink/55 mt-1">Tự động nhận diện khung dọc 9:16 (Reels/TikTok) hoặc ngang 16:9</p>
+                            </div>
+                        </div>
+                        <span id="evVideoCountBadge" class="px-2.5 py-1 rounded-full bg-blush text-scarlet font-mono text-xs font-extrabold">2 Video</span>
+                    </div>
+
+                    <!-- Dynamic Video Grid -->
+                    <div id="evVideoGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+                </div>
+
+                <!-- ============================================================
+                     LAYOUT PART 02: IMAGE PROOF MASONRY (NATURAL ASPECT RATIO)
+                     ============================================================ -->
+                <div id="imageStageCol" class="lg:col-span-7 bg-white rounded-3xl p-5 sm:p-6 border border-hairline shadow-gallery">
+                    <div class="flex items-center justify-between pb-3 mb-4 hairline-b">
+                        <div class="flex items-center gap-2">
+                            <span class="w-8 h-8 rounded-xl bg-ink text-white flex items-center justify-center">
+                                <i data-lucide="image" class="w-4 h-4"></i>
+                            </span>
+                            <div>
+                                <h3 class="font-serif font-extrabold text-lg text-ink leading-none">Bố Cục 02 — Hình Ảnh &amp; Số Liệu (Auto-Masonry)</h3>
+                                <p class="font-mono text-[10px] text-ink/55 mt-1">Tự điều chỉnh theo đúng tỷ lệ ảnh gốc (1:1, 4:5, 16:9, ảnh chụp báo cáo dài)</p>
+                            </div>
+                        </div>
+                        <span id="evImageCountBadge" class="px-2.5 py-1 rounded-full bg-pearl text-ink font-mono text-xs font-extrabold">2 Ảnh</span>
+                    </div>
+
+                    <!-- Dynamic Auto-Sizing Masonry Columns -->
+                    <div id="evImageMasonry" class="masonry-gallery"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- STICKY MAC-OS STYLE BOTTOM PROJECT DOCK (1-Click Instant Campaign Switcher) -->
+        <div class="fixed bottom-4 inset-x-0 z-40 flex justify-center px-3 pointer-events-none no-print">
+            <div class="pointer-events-auto bg-ink/95 backdrop-blur-md text-white px-3 py-2 rounded-2xl border border-white/15 shadow-2xl flex items-center gap-1.5 overflow-x-auto max-w-full">
+                <span class="hidden md:inline font-mono text-[10px] uppercase tracking-wider text-amber-300 font-bold px-2 shrink-0">
+                    CHUYỂN NHANH DỰ ÁN:
+                </span>
+                <button onclick="openEvidencePage('oak')" data-dock="oak" class="dock-btn px-3 py-1.5 rounded-xl font-mono text-xs font-bold whitespace-nowrap transition-all">01. Oak Café</button>
+                <button onclick="openEvidencePage('combat')" data-dock="combat" class="dock-btn px-3 py-1.5 rounded-xl font-mono text-xs font-bold whitespace-nowrap transition-all">02. Combat Zone</button>
+                <button onclick="openEvidencePage('matchacha')" data-dock="matchacha" class="dock-btn px-3 py-1.5 rounded-xl font-mono text-xs font-bold whitespace-nowrap transition-all">03. Matchacha</button>
+                <button onclick="openEvidencePage('iie')" data-dock="iie" class="dock-btn px-3 py-1.5 rounded-xl font-mono text-xs font-bold whitespace-nowrap transition-all">04. Viện IIE</button>
+                <button onclick="openEvidencePage('huythanh')" data-dock="huythanh" class="dock-btn px-3 py-1.5 rounded-xl font-mono text-xs font-bold whitespace-nowrap transition-all">05. Huy Thanh</button>
+                <button onclick="openEvidencePage('nefa')" data-dock="nefa" class="dock-btn px-3 py-1.5 rounded-xl font-mono text-xs font-bold whitespace-nowrap transition-all">06. NEFA Live</button>
+                <button onclick="openEvidencePage('sporthub')" data-dock="sporthub" class="dock-btn px-3 py-1.5 rounded-xl font-mono text-xs font-bold whitespace-nowrap transition-all">07. Sport Hub</button>
+                <button onclick="openEvidencePage('dbc')" data-dock="dbc" class="dock-btn px-3 py-1.5 rounded-xl font-mono text-xs font-bold whitespace-nowrap transition-all">08. Top 30 DBC</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================================
+         EDITORIAL COLOPHON & CONTACT FOOTER
+         ============================================================================ -->
+    <footer id="contact-footer" class="bg-ink text-alabaster relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center pb-12 border-b border-white/15">
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-scarlet text-white font-mono text-xs font-extrabold uppercase">
+                        <span>SẴN SÀNG ĐỒNG HÀNH &amp; BỨT PHÁ TĂNG TRƯỞNG</span>
+                    </div>
+                    <h2 class="font-serif font-black text-4xl sm:text-6xl text-white leading-none">
+                        Kết Nối Cùng <br>
+                        <span class="italic text-scarlet">Trần Thị Quỳnh Như</span>
+                    </h2>
+                    <p class="text-sm sm:text-base text-white/75 max-w-xl leading-relaxed">
+                        Hồ sơ năng lực đã được chuẩn hóa toàn diện cả về nội dung chiến lược lẫn minh chứng thị giác. Rất mong có cơ hội trao đổi sâu hơn cùng Quý Công ty trong buổi phỏng vấn!
+                    </p>
+                </div>
+
+                <div class="lg:col-span-5 bg-white text-ink rounded-3xl p-6 sm:p-8 border-2 border-scarlet shadow-scarlet-glow space-y-4">
+                    <div class="font-mono text-xs font-extrabold uppercase text-scarlet tracking-wider">
+                        THÔNG TIN LIÊN HỆ TRỰC TIẾP
+                    </div>
+                    <div class="space-y-2.5 font-mono text-xs sm:text-sm">
+                        <div class="flex items-center justify-between py-2 hairline-b">
+                            <span class="text-ink/55">HỌ VÀ TÊN:</span>
+                            <span class="font-extrabold">TRẦN THỊ QUỲNH NHƯ</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 hairline-b">
+                            <span class="text-ink/55">NGÀY SINH:</span>
+                            <span class="font-bold">09/01/2006</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 hairline-b">
+                            <span class="text-ink/55">ĐIỆN THOẠI:</span>
+                            <a href="tel:0377311559" class="font-extrabold text-scarlet hover:underline">0377311559</a>
+                        </div>
+                        <div class="flex items-center justify-between py-2 hairline-b gap-2">
+                            <span class="text-ink/55 shrink-0">EMAIL:</span>
+                            <button onclick="copyEmailAddress()" class="font-bold text-ink hover:text-scarlet truncate text-right" title="Click để sao chép">
+                                tranthiquynhnhu0901@gmail.com
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-ink/55">ĐỊA CHỈ:</span>
+                            <span class="font-bold text-right">Phường An Hội Đông, TP.HCM</span>
+                        </div>
+                    </div>
+                    <div class="pt-2 flex flex-wrap gap-2.5">
+                        <a href="mailto:tranthiquynhnhu0901@gmail.com?subject=Mời phỏng vấn Marketing Executive - Trần Thị Quỳnh Như" class="flex-1 text-center py-3.5 rounded-xl bg-scarlet text-white font-mono text-xs font-extrabold uppercase hover:bg-ruby transition-colors">
+                            Gửi Email Phỏng Vấn
+                        </a>
+                        <button onclick="window.print()" class="px-4 py-3.5 rounded-xl bg-ink text-white font-mono text-xs font-bold uppercase hover:bg-ink/80 transition-colors">
+                            In Hồ Sơ PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-white/50">
+                <div>© 2026 TRẦN THỊ QUỲNH NHƯ — PERFORMANCE &amp; CREATIVE MARKETING PORTFOLIO.</div>
+                <div>HIGH-LIGHT MODERN ART EDITORIAL • AUTO-SIZING DUAL EVIDENCE STUDIO</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================================
+         FULLSCREEN LIGHTBOX MODAL (FOR VIDEO & IMAGE ZOOM)
+         ============================================================================ -->
+    <div id="mediaLightbox" class="fixed inset-0 z-50 hidden bg-ink/95 backdrop-blur-md flex flex-col items-center justify-center p-4">
+        <div class="w-full max-w-5xl flex items-center justify-between text-white mb-3 font-mono text-xs">
+            <span id="lightboxTitle" class="font-bold text-amber-300">MINH CHỨNG CHIẾN DỊCH</span>
+            <button onclick="closeLightbox()" class="px-4 py-1.5 rounded-lg bg-scarlet text-white font-bold uppercase">Đóng [ESC]</button>
+        </div>
+        <div id="lightboxStage" class="max-w-5xl w-full max-h-[82vh] flex items-center justify-center overflow-hidden rounded-2xl border border-white/20 bg-black"></div>
+    </div>
+
+    <!-- ============================================================================
+         LIVE LINK EDITOR MODAL (GẮN LINK TIKTOK / FANPAGE / WEBSITE THỰC TẾ)
+         ============================================================================ -->
+    <div id="liveLinkModal" class="fixed inset-0 z-50 hidden bg-ink/80 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl border-2 border-ink max-w-md w-full p-6 space-y-4 shadow-2xl">
+            <div class="flex items-center justify-between pb-3 hairline-b">
+                <h3 class="font-serif font-bold text-xl text-ink">Gắn Link Kênh Thực Tế</h3>
+                <button onclick="closeLiveLinkModal()" class="w-8 h-8 rounded-full bg-pearl font-mono font-bold">✕</button>
+            </div>
+            <div class="space-y-3 text-sm">
+                <div>
+                    <label class="block font-mono text-xs font-bold uppercase text-ink/70 mb-1">Tên hiển thị nút Link</label>
+                    <input id="liveLinkLabelInput" type="text" class="w-full px-3.5 py-2.5 rounded-xl border border-hairline font-sans text-sm" placeholder="VD: Kênh TikTok Matchacha (70K Views)">
+                </div>
+                <div>
+                    <label class="block font-mono text-xs font-bold uppercase text-ink/70 mb-1">Đường dẫn URL (TikTok, Facebook, Google Maps, GitHub...)</label>
+                    <input id="liveLinkUrlInput" type="url" class="w-full px-3.5 py-2.5 rounded-xl border border-hairline font-mono text-xs" placeholder="https://...">
+                </div>
+            </div>
+            <div class="flex justify-end gap-2 pt-2">
+                <button onclick="closeLiveLinkModal()" class="px-4 py-2 rounded-xl bg-pearl font-mono text-xs font-bold">Hủy</button>
+                <button onclick="saveLiveLinkModal()" class="px-5 py-2 rounded-xl bg-scarlet text-white font-mono text-xs font-extrabold uppercase">Lưu Liên Kết</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toastBox" class="fixed top-20 right-5 z-50 hidden bg-ink text-white border-2 border-scarlet rounded-2xl px-4 py-3 font-mono text-xs font-bold shadow-2xl flex items-center gap-2.5">
+        <span class="w-2.5 h-2.5 rounded-full bg-scarlet animate-ping"></span>
+        <span id="toastMsg">Đã cập nhật!</span>
+    </div>
+
+    <!-- ============================================================================
+         MASTER JAVASCRIPT ENGINE:
+         - Gentle Minimalist Translucent Ring Follower & Soft Ambient Glow
+         - Calm Scroll Reveal & Smooth KPI Count-Up
+         - Pre-populated Evidence Database for all 8 Projects
+         - Automatic Natural Dimension Detection (videoWidth x videoHeight & naturalWidth x naturalHeight)
+         ============================================================================ -->
+    <script>
+        lucide.createIcons();
+
+        // =========================================================================
+        // 1. GENTLE MINIMALIST RING FOLLOWER & SOFT AMBIENT GLOW (NO CLUTTER)
+        // =========================================================================
+        const artCursor = document.getElementById('artCursor');
+        const ambientSpotlight = document.getElementById('ambientMouseSpotlight');
+        let gentleCursorEnabled = true;
+
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let ringX = mouseX;
+        let ringY = mouseY;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (ambientSpotlight && gentleCursorEnabled) {
+                ambientSpotlight.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+            }
+        });
+
+        function toggleGentleCursor() {
+            gentleCursorEnabled = !gentleCursorEnabled;
+            const dot = document.getElementById('cursorStatusDot');
+            const txt = document.getElementById('cursorStatusText');
+            if (gentleCursorEnabled) {
+                if (artCursor) artCursor.style.opacity = '1';
+                if (ambientSpotlight) ambientSpotlight.style.opacity = '1';
+                if (dot) dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-400';
+                if (txt) txt.textContent = 'Vòng trỏ chuột êm: BẬT';
+            } else {
+                if (artCursor) artCursor.style.opacity = '0';
+                if (ambientSpotlight) ambientSpotlight.style.opacity = '0';
+                if (dot) dot.className = 'w-1.5 h-1.5 rounded-full bg-white/40';
+                if (txt) txt.textContent = 'Vòng trỏ chuột êm: TẮT';
+            }
+        }
+
+        // Subtle expansion on interactive elements without blocking any text
+        document.addEventListener('mouseover', (e) => {
+            if (!artCursor || !gentleCursorEnabled) return;
+            const clickable = e.target.closest('button, a, label, .art-card, .camp-card');
+            if (clickable) {
+                artCursor.classList.add('cursor-hover');
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            if (!artCursor) return;
+            const clickable = e.target.closest('button, a, label, .art-card, .camp-card');
+            if (clickable) {
+                artCursor.classList.remove('cursor-hover');
+            }
+        });
+
+        function animateGentleCursor() {
+            if (gentleCursorEnabled && artCursor) {
+                ringX += (mouseX - ringX) * 0.15;
+                ringY += (mouseY - ringY) * 0.15;
+                artCursor.style.left = `${ringX}px`;
+                artCursor.style.top = `${ringY}px`;
+            }
+            requestAnimationFrame(animateGentleCursor);
+        }
+        requestAnimationFrame(animateGentleCursor);
+
+        // =========================================================================
+        // 2. CALM KPI COUNT-UP & GENTLE FADE-UP ON SCROLL
+        // =========================================================================
+        function animateCounterElement(el) {
+            const target = parseInt(el.getAttribute('data-countup'), 10);
+            if (isNaN(target)) return;
+            const prefix = el.getAttribute('data-prefix') || '';
+            const suffix = el.getAttribute('data-suffix') || '';
+            const format = el.getAttribute('data-format') || '';
+            const duration = 1200;
+            const startTime = performance.now();
+
+            function step(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(target * eased);
+                const formatted = format === 'dot'
+                    ? current.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+                    : current.toString();
+                el.textContent = `${prefix}${formatted}${suffix}`;
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            }
+            requestAnimationFrame(step);
+        }
+
+        function initScrollRevealAndCounters() {
+            const revealTargets = document.querySelectorAll('.camp-card, .art-card, #chapter-03 > div, #chapter-04 > div, #chapter-05 > div');
+            revealTargets.forEach((el, idx) => {
+                el.classList.add('reveal-item');
+                el.style.transitionDelay = `${(idx % 3) * 50}ms`;
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        entry.target.querySelectorAll('[data-countup]').forEach(counterEl => {
+                            if (!counterEl.dataset.counted) {
+                                counterEl.dataset.counted = 'true';
+                                animateCounterElement(counterEl);
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealTargets.forEach(el => observer.observe(el));
+            setTimeout(() => {
+                document.querySelectorAll('[data-countup]').forEach(el => {
+                    if (!el.dataset.counted) {
+                        el.dataset.counted = 'true';
+                        animateCounterElement(el);
+                    }
+                });
+            }, 300);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initScrollRevealAndCounters();
+        });
+
+        // Toast Helper
+        function showToast(msg) {
+            const box = document.getElementById('toastBox');
+            const text = document.getElementById('toastMsg');
+            text.textContent = msg;
+            box.classList.remove('hidden');
+            setTimeout(() => box.classList.add('hidden'), 3400);
+        }
+
+        // Portrait Upload
+        function handlePortraitChange(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            document.getElementById('heroPortraitImg').src = URL.createObjectURL(file);
+            showToast('Đã cập nhật ảnh chân dung của Trần Thị Quỳnh Như!');
+        }
+
+        // Copy Email
+        function copyEmailAddress() {
+            const input = document.createElement('input');
+            input.value = 'tranthiquynhnhu0901@gmail.com';
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+            showToast('Đã sao chép email: tranthiquynhnhu0901@gmail.com');
+        }
+
+        // Filter Campaigns in Chapter 02
+        function filterCampaigns(cat) {
+            const cards = document.querySelectorAll('.camp-card');
+            const btns = document.querySelectorAll('.camp-btn');
+            btns.forEach(b => {
+                if (b.getAttribute('data-campfilter') === cat) {
+                    b.className = 'camp-btn px-4 py-2 rounded-full bg-scarlet text-white font-bold uppercase transition-all';
+                } else {
+                    b.className = 'camp-btn px-4 py-2 rounded-full bg-white border border-hairline text-ink hover:border-scarlet font-bold uppercase transition-all';
+                }
+            });
+            cards.forEach(c => {
+                const tags = c.getAttribute('data-campcat') || '';
+                c.style.display = (cat === 'all' || tags.includes(cat)) ? '' : 'none';
+            });
+        }
+
+        // =========================================================================
+        // DEDICATED EVIDENCE DATABASE FOR ALL 8 PROJECTS (WITH STRATEGIC CHECKLISTS)
+        // =========================================================================
+        const evidenceStore = {
+            oak: {
+                title: 'OAK CAFÉ — Đa Kênh & Google Maps Ads',
+                period: '08/2026 – Hiện tại',
+                role: 'Vai trò: Social Media (FB, TikTok, IG, Threads, Google Business Profile)',
+                kpi: '🔥 Doanh thu +20% (Tháng 1) & +40% (Tháng 2) • Google Maps Ads (500k/20 ngày): >25.000 hiển thị & >21.000 người tiếp cận',
+                liveUrl: 'https://maps.google.com',
+                checklist: 'Đề xuất chèn: 1–2 Video Reels/TikTok quay không gian & món nước Oak Café (Cột Video) + Ảnh chụp bảng Content Calendar, ảnh chụp báo cáo Google Business Profile (>25.000 hiển thị) và bộ ấn phẩm thiết kế (Cột Ảnh).',
+                items: [
+                    {
+                        id: 'oak-v1',
+                        type: 'video',
+                        url: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=700&q=80',
+                        isSimulatedVideo: true,
+                        aspect: '9:16',
+                        dims: '1080 × 1920 (9:16 Vertical Reel)',
+                        caption: 'Video Reels/TikTok giới thiệu không gian & signature drink tại Oak Café'
+                    },
+                    {
+                        id: 'oak-i1',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=900&q=80',
+                        dims: '1600 × 900 (16:9 Dashboard)',
+                        caption: 'Báo cáo chiến dịch Google Maps Ads (500.000đ/20 ngày): >25.000 hiển thị & >21.000 tiếp cận'
+                    },
+                    {
+                        id: 'oak-i2',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80',
+                        dims: '1080 × 1080 (1:1 Key Visual)',
+                        caption: 'Bộ ấn phẩm truyền thông đa nền tảng giúp doanh thu tăng +20% tháng đầu và +40% tháng thứ 2'
+                    },
+                    {
+                        id: 'oak-i3',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80',
+                        dims: '1440 × 900 (Content Calendar)',
+                        caption: 'Kế hoạch Content Calendar tổng thể cho Facebook, TikTok, Instagram & Threads'
+                    }
+                ]
+            },
+            combat: {
+                title: 'CLB COMBAT ZONE — Viral Video & Meta Lead Ads',
+                period: '06/2025 – Hiện tại',
+                role: 'Vai trò: Social Media & Facebook Ads',
+                kpi: '⚡ ~200.000 Lượt xem tự nhiên • >145.000 Người tiếp cận • >80 Tin nhắn (+200% T2) • Meta Ads CPA ~23.000đ/liên hệ',
+                liveUrl: 'https://facebook.com',
+                checklist: 'Đề xuất chèn: 2–3 Video TikTok/Reels đạt gần 200.000 views (Cột Video) + Ảnh chụp màn hình Facebook Insights (>145.000 reach, +200% tin nhắn) và Trình quản lý Meta Ads hiển thị CPA 23.000đ/lượt liên hệ (Cột Ảnh).',
+                items: [
+                    {
+                        id: 'cb-v1',
+                        type: 'video',
+                        url: 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=700&q=80',
+                        isSimulatedVideo: true,
+                        aspect: '9:16',
+                        dims: '1080 × 1920 (9:16 Viral Reel)',
+                        caption: 'Video Viral đạt gần 200.000 lượt xem tự nhiên & kéo hơn 80 tin nhắn đăng ký tập luyện'
+                    },
+                    {
+                        id: 'cb-v2',
+                        type: 'video',
+                        url: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=700&q=80',
+                        isSimulatedVideo: true,
+                        aspect: '9:16',
+                        dims: '1080 × 1920 (9:16 Training Reel)',
+                        caption: 'Video hậu trường huấn luyện tối ưu thời điểm đăng giúp tăng >100% views ngay tháng đầu'
+                    },
+                    {
+                        id: 'cb-i1',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80',
+                        dims: '1600 × 950 (Analytics Insight)',
+                        caption: 'Số liệu thống kê tự nhiên cao điểm: Gần 200.000 lượt xem & Hơn 145.000 người tiếp cận'
+                    },
+                    {
+                        id: 'cb-i2',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80',
+                        dims: '1600 × 900 (Meta Ads Manager)',
+                        caption: 'Báo cáo Facebook Ads (ngân sách ~1 triệu đồng): Tối ưu chi phí trung bình 23.000đ / lượt liên hệ'
+                    }
+                ]
+            },
+            matchacha: {
+                title: 'MATCHACHA THỦ ĐỨC — Xây Kênh TikTok Organic',
+                period: '04/2026 – 07/2026',
+                role: 'Vai trò: Social Media (TikTok Strategist & Creator)',
+                kpi: '🚀 Video cao nhất đạt >70.000 lượt xem tự nhiên • Hàng loạt video >30.000 views • 0đ Quảng cáo trả phí',
+                liveUrl: 'https://tiktok.com',
+                checklist: 'Đề xuất chèn: Các video TikTok dọc 9:16 đạt >70.000 views và >30.000 views (Cột Video) + Ảnh chụp màn hình trang chủ kênh TikTok Matchacha và biểu đồ Traffic 100% Organic (Cột Ảnh).',
+                items: [
+                    {
+                        id: 'mc-v1',
+                        type: 'video',
+                        url: 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=700&q=80',
+                        isSimulatedVideo: true,
+                        aspect: '9:16',
+                        dims: '1080 × 1920 (9:16 TikTok Viral)',
+                        caption: 'Video TikTok đạt đỉnh >70.000 lượt xem tự nhiên (100% Organic, không dùng quảng cáo trả phí)'
+                    },
+                    {
+                        id: 'mc-i1',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=800&q=80',
+                        dims: '1080 × 1350 (4:5 Visual)',
+                        caption: 'Chuỗi nội dung đạt trên 30.000 lượt xem tự nhiên trong giai đoạn xây kênh ban đầu'
+                    },
+                    {
+                        id: 'mc-i2',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80',
+                        dims: '1600 × 900 (TikTok Analytics)',
+                        caption: 'Phân tích hành vi người xem & Kế hoạch nội dung TikTok theo tháng tại Matchacha Thủ Đức'
+                    }
+                ]
+            },
+            iie: {
+                title: 'VIỆN GIÁO DỤC QUỐC TẾ IIE — Điều Phối Xúc Tiến Thương Mại',
+                period: '06/2026 – Hiện tại',
+                role: 'Vai trò: Trợ lý Trưởng phòng Xúc tiến Thương Mại',
+                kpi: '📋 Điều phối tiến độ liên bộ phận • Lập kế hoạch nội dung tháng • Soạn thảo tài liệu, bảng kê chi phí & báo cáo',
+                liveUrl: '#',
+                checklist: 'Đề xuất chèn: Hình ảnh lịch trình điều phối Master Plan tháng, mẫu báo cáo tổng hợp dữ liệu và hình ảnh hoạt động tại Viện Giáo Dục Quốc Tế IIE.',
+                items: [
+                    {
+                        id: 'iie-i1',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80',
+                        dims: '1600 × 1000 (16:10 Plan)',
+                        caption: 'Điều phối công việc giữa các bộ phận & Theo dõi tiến độ kế hoạch nội dung theo tháng'
+                    },
+                    {
+                        id: 'iie-i2',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80',
+                        dims: '1600 × 900 (Reporting Sheet)',
+                        caption: 'Tổng hợp dữ liệu, lập bảng kê chi phí và báo cáo phục vụ theo dõi hoạt động xúc tiến thương mại'
+                    }
+                ]
+            },
+            huythanh: {
+                title: 'HUY THANH JEWELRY — Dự Án Đại Sứ Huy Thanh',
+                period: '04/2026 – 10/2026',
+                role: 'Vai trò: Video Editor & TikTok SEO Creator',
+                kpi: '💎 Nhiều video đạt 20.000 – 30.000 lượt xem • Tối ưu từ khóa tìm kiếm (TikTok SEO) ngành trang sức cưới',
+                liveUrl: 'https://tiktok.com',
+                checklist: 'Đề xuất chèn: 2–3 Video TikTok quay cận cảnh nhẫn cưới, cặp đôi & không gian cửa hàng (Cột Video) + Ảnh chụp màn hình các video đạt 20.000–30.000 views kèm từ khóa SEO lên xu hướng (Cột Ảnh).',
+                items: [
+                    {
+                        id: 'ht-v1',
+                        type: 'video',
+                        url: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=700&q=80',
+                        isSimulatedVideo: true,
+                        aspect: '9:16',
+                        dims: '1080 × 1920 (9:16 Jewelry Reel)',
+                        caption: 'Video TikTok nhẫn cưới & cặp đôi đạt 20.000 – 30.000 lượt xem, tối ưu từ khóa tìm kiếm trang sức cưới'
+                    },
+                    {
+                        id: 'ht-i1',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80',
+                        dims: '1080 × 1350 (4:5 Showroom)',
+                        caption: 'Hình ảnh & Kịch bản quay dựng không gian cửa hàng Huy Thanh Jewelry'
+                    },
+                    {
+                        id: 'ht-i2',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=80',
+                        dims: '1200 × 900 (4:3 Product)',
+                        caption: 'Tối ưu hiển thị nội dung gắn với bộ từ khóa tìm kiếm ngành hàng trang sức cưới trên TikTok'
+                    }
+                ]
+            },
+            nefa: {
+                title: 'CÔNG TY TNHH NEFA VIỆT NAM — Livestream Commerce',
+                period: '04/2026 – 05/2026',
+                role: 'Vai trò: Livestream Host',
+                kpi: '🎙️ Doanh thu trung bình >10 triệu đồng/ngày • Phiên livestream cao nhất đạt đỉnh 32 triệu đồng',
+                liveUrl: '#',
+                checklist: 'Đề xuất chèn: 1 đoạn video highlight (30–60s) lúc bạn trực tiếp dẫn Livestream năng lượng nhất (Cột Video) + Ảnh chụp màn hình Dashboard doanh thu phiên live đạt đỉnh 32 triệu đồng (Cột Ảnh).',
+                items: [
+                    {
+                        id: 'nf-v1',
+                        type: 'video',
+                        url: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=700&q=80',
+                        isSimulatedVideo: true,
+                        aspect: '9:16',
+                        dims: '1080 × 1920 (9:16 Live Highlight)',
+                        caption: 'Highlight dẫn phiên Livestream giới thiệu sản phẩm, tư vấn và tương tác chốt đơn trực tiếp'
+                    },
+                    {
+                        id: 'nf-i1',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80',
+                        dims: '1600 × 900 (Live GMV Dashboard)',
+                        caption: 'Báo cáo doanh thu Livestream: Trung bình >10 triệu đồng/ngày, phiên kỷ lục đạt 32 triệu đồng'
+                    },
+                    {
+                        id: 'nf-i2',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1586880244406-556ebe35f282?auto=format&fit=crop&w=800&q=80',
+                        dims: '1080 × 1080 (1:1 Script)',
+                        caption: 'Kịch bản phiên livestream & Quy trình tư vấn hỗ trợ khách đặt hàng'
+                    }
+                ]
+            },
+            sporthub: {
+                title: 'SPORT HUB — Website Thể Thao & SEO Architecture',
+                period: '09/2025 – Hiện tại',
+                role: 'Vai trò: Website Development & SEO',
+                kpi: '💻 Thiết kế Sitemap, Cấu trúc & Giao diện (GitHub, VS Code) • Tối ưu nội dung SEO, Internal Link & Google Ads',
+                liveUrl: 'https://github.com',
+                checklist: 'Đề xuất chèn: Video quay màn hình thao tác lướt trang web Sport Hub (Cột Video) + Ảnh chụp giao diện trang chủ, sơ đồ Sitemap và cấu trúc bài viết chuẩn SEO (Cột Ảnh).',
+                items: [
+                    {
+                        id: 'sh-v1',
+                        type: 'video',
+                        url: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80',
+                        isSimulatedVideo: true,
+                        aspect: '16:9',
+                        dims: '1920 × 1080 (16:9 Web Walkthrough)',
+                        caption: 'Demo giao diện & cấu trúc điều hướng trên Website Thể Thao Sport Hub'
+                    },
+                    {
+                        id: 'sh-i1',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80',
+                        dims: '1600 × 900 (VS Code & GitHub)',
+                        caption: 'Triển khai mã nguồn giao diện bằng Visual Studio Code, GitHub và tích hợp công cụ SEO'
+                    },
+                    {
+                        id: 'sh-i2',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=900&q=80',
+                        dims: '1600 × 1000 (Sitemap & Google Ads)',
+                        caption: 'Sơ đồ Sitemap, liên kết bài viết SEO và chiến dịch Google Ads quảng bá website'
+                    }
+                ]
+            },
+            dbc: {
+                title: 'TOP 30 TOÀN QUỐC — Cuộc Thi Sinh Viên Kinh Doanh Số 2025 (DBC 2025)',
+                period: 'Năm 2025 • Tổ chức bởi VECOM & VecomNet',
+                role: 'Vai trò: Thành viên Nghiên cứu & Phát triển Dự án (R&D) — Dự án TUẦN HOÀN XANH',
+                kpi: '🏆 TOP 30 TOÀN QUỐC DBC 2025 • Mô hình kinh doanh tuần hoàn & Định hướng truyền thông tiêu dùng xanh',
+                liveUrl: '#',
+                checklist: 'Đề xuất chèn: Video thuyết trình Pitching hoặc giới thiệu dự án Tuần Hoàn Xanh (Cột Video) + Ảnh chụp Giấy chứng nhận TOP 30 Toàn quốc DBC 2025, ảnh chụp đội thi và Slide Pitch Deck (Cột Ảnh).',
+                items: [
+                    {
+                        id: 'dbc-v1',
+                        type: 'video',
+                        url: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=900&q=80',
+                        isSimulatedVideo: true,
+                        aspect: '16:9',
+                        dims: '1920 × 1080 (16:9 Pitch Video)',
+                        caption: 'Giới thiệu dự án TUẦN HOÀN XANH — Thúc đẩy tiêu dùng xanh và giảm thiểu rác thải'
+                    },
+                    {
+                        id: 'dbc-i1',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
+                        dims: '1600 × 1100 (Certificate & Team)',
+                        caption: 'Chứng nhận TOP 30 TOÀN QUỐC — Cuộc thi Sinh viên Kinh doanh số 2025 (VECOM & VecomNet)'
+                    },
+                    {
+                        id: 'dbc-i2',
+                        type: 'image',
+                        url: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80',
+                        dims: '1600 × 900 (Pitch Deck R&D)',
+                        caption: 'Nghiên cứu hành vi tiêu dùng bền vững, phân tích tính khả thi & Kế hoạch truyền thông xanh'
+                    }
+                ]
+            }
+        };
+
+        let activeEvidenceKey = 'combat';
+        let currentLayoutMode = 'split'; // 'split' or 'stacked'
+
+        // Open Dedicated Full-Page Evidence View
+        function openEvidencePage(projectKey) {
+            if (!evidenceStore[projectKey]) projectKey = 'combat';
+            activeEvidenceKey = projectKey;
+
+            document.getElementById('mainPortfolioView').classList.add('hidden');
+            document.getElementById('evidenceSubPage').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            renderEvidencePage();
+        }
+
+        // Return to Main Portfolio View
+        function closeEvidencePage() {
+            document.getElementById('evidenceSubPage').classList.add('hidden');
+            document.getElementById('mainPortfolioView').classList.remove('hidden');
+        }
+
+        // Toggle between Dual-Stage Split View and Stacked View
+        function setEvidenceLayoutMode(mode) {
+            currentLayoutMode = mode;
+            const splitBtn = document.getElementById('modeBtnSplit');
+            const stackedBtn = document.getElementById('modeBtnStacked');
+            const videoCol = document.getElementById('videoStageCol');
+            const imageCol = document.getElementById('imageStageCol');
+            const masonry = document.getElementById('evImageMasonry');
+
+            if (mode === 'split') {
+                splitBtn.className = 'px-3.5 py-1.5 rounded-lg bg-scarlet text-white font-bold transition-all';
+                stackedBtn.className = 'px-3.5 py-1.5 rounded-lg text-ink hover:text-scarlet font-bold transition-all';
+                videoCol.className = 'lg:col-span-5 bg-white rounded-3xl p-5 sm:p-6 border border-hairline shadow-gallery';
+                imageCol.className = 'lg:col-span-7 bg-white rounded-3xl p-5 sm:p-6 border border-hairline shadow-gallery';
+                masonry.classList.remove('cols-3');
+            } else {
+                stackedBtn.className = 'px-3.5 py-1.5 rounded-lg bg-scarlet text-white font-bold transition-all';
+                splitBtn.className = 'px-3.5 py-1.5 rounded-lg text-ink hover:text-scarlet font-bold transition-all';
+                videoCol.className = 'lg:col-span-12 bg-white rounded-3xl p-5 sm:p-6 border border-hairline shadow-gallery';
+                imageCol.className = 'lg:col-span-12 bg-white rounded-3xl p-5 sm:p-6 border border-hairline shadow-gallery';
+                masonry.classList.add('cols-3');
+            }
+            renderEvidencePage();
+        }
+
+        // Render Active Project inside Dedicated Evidence Page
+        function renderEvidencePage() {
+            const proj = evidenceStore[activeEvidenceKey];
+            if (!proj) return;
+
+            document.getElementById('evProjectTitle').textContent = proj.title;
+            document.getElementById('evProjectPeriod').textContent = proj.period;
+            document.getElementById('evProjectRole').textContent = proj.role;
+            document.getElementById('evProjectKpiSummary').textContent = proj.kpi;
+            document.getElementById('evProjectChecklistHint').textContent = proj.checklist;
+
+            const liveLinkEl = document.getElementById('evProjectLiveLink');
+            if (proj.liveUrl && proj.liveUrl !== '#') {
+                liveLinkEl.href = proj.liveUrl;
+                liveLinkEl.classList.remove('hidden');
+            } else {
+                liveLinkEl.classList.add('hidden');
+            }
+
+            // Update Sticky Bottom Dock active pill
+            document.querySelectorAll('.dock-btn').forEach(btn => {
+                if (btn.getAttribute('data-dock') === activeEvidenceKey) {
+                    btn.className = 'dock-btn px-3.5 py-1.5 rounded-xl font-mono text-xs font-extrabold bg-scarlet text-white whitespace-nowrap shadow transition-all';
+                } else {
+                    btn.className = 'dock-btn px-3 py-1.5 rounded-xl font-mono text-xs font-bold text-white/75 hover:text-white hover:bg-white/10 whitespace-nowrap transition-all';
+                }
+            });
+
+            // Split items into Videos vs Images
+            const videos = proj.items.filter(it => it.type === 'video');
+            const images = proj.items.filter(it => it.type === 'image');
+
+            document.getElementById('evVideoCountBadge').textContent = `${videos.length} Video`;
+            document.getElementById('evImageCountBadge').textContent = `${images.length} Ảnh`;
+
+            // Update badge count on main page card if present
+            const countBadge = document.getElementById(`badge-count-${activeEvidenceKey}`);
+            if (countBadge) {
+                countBadge.textContent = countBadge.id.includes('oak') || countBadge.id.includes('combat') || countBadge.id.includes('matchacha')
+                    ? `${proj.items.length} File`
+                    : `${proj.items.length}`;
+            }
+
+            // Render Video Stage
+            const videoGrid = document.getElementById('evVideoGrid');
+            videoGrid.className = currentLayoutMode === 'stacked'
+                ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5'
+                : 'grid grid-cols-1 sm:grid-cols-2 gap-4';
+
+            if (videos.length === 0) {
+                videoGrid.innerHTML = `
+                    <div class="col-span-full rounded-2xl border-2 border-dashed border-hairline p-8 text-center text-ink/50 font-mono text-xs">
+                        Chưa có video trong mục này. Nhấn "+ Tải Thêm Nhiều Video / Ảnh" ở góc trên để chèn file .MP4/.MOV!
+                    </div>
+                `;
+            } else {
+                videoGrid.innerHTML = videos.map(v => {
+                    const isHorizontal = v.aspect === '16:9';
+                    const aspectClass = isHorizontal ? 'aspect-video sm:col-span-2' : 'aspect-[9/16]';
+                    const mediaMarkup = v.isSimulatedVideo
+                        ? `<img src="${v.url}" alt="${v.caption}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                           <div class="absolute inset-0 bg-black/25 flex items-center justify-center">
+                               <div class="w-12 h-12 rounded-full bg-scarlet text-white flex items-center justify-center shadow-lg border-2 border-white">
+                                   <i data-lucide="play" class="w-5 h-5 fill-current ml-0.5"></i>
+                               </div>
+                           </div>`
+                        : `<video src="${v.url}" controls playsinline preload="metadata" class="w-full h-full object-contain bg-black"></video>`;
+
+                    return `
+                        <div class="bg-alabaster rounded-2xl border border-hairline overflow-hidden flex flex-col justify-between group">
+                            <div onclick="${v.isSimulatedVideo ? `openLightboxUrl('${v.url}', 'image', '${v.caption.replace(/'/g, "\\'")}')` : ''}" class="relative ${aspectClass} bg-ink overflow-hidden cursor-pointer">
+                                ${mediaMarkup}
+                                <div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-ink/85 text-amber-300 font-mono text-[10px] font-bold pointer-events-none">
+                                    ${v.dims}
+                                </div>
+                                <button onclick="event.stopPropagation(); removeEvidenceItem('${v.id}')" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-ink/80 hover:bg-scarlet text-white font-mono text-xs flex items-center justify-center" title="Xóa file này">✕</button>
+                            </div>
+                            <div class="p-3.5 bg-white hairline-t">
+                                <div class="font-mono text-[10px] text-scarlet font-bold uppercase mb-0.5">CHÚ THÍCH VIDEO (CÓ THỂ SỬA):</div>
+                                <p contenteditable="true" onblur="updateItemCaption('${v.id}', this.innerText)" class="text-xs text-ink font-medium leading-snug focus:outline-none focus:bg-blush/50 rounded px-1 -mx-1">${v.caption}</p>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            // Render Auto-Sizing Image Masonry
+            const imageMasonry = document.getElementById('evImageMasonry');
+            if (images.length === 0) {
+                imageMasonry.innerHTML = `
+                    <div class="rounded-2xl border-2 border-dashed border-hairline p-8 text-center text-ink/50 font-mono text-xs">
+                        Chưa có hình ảnh minh chứng. Hãy tải ảnh chụp màn hình Analytics, Ads hoặc thiết kế Canva lên!
+                    </div>
+                `;
+            } else {
+                imageMasonry.innerHTML = images.map(img => `
+                    <div class="masonry-item bg-alabaster rounded-2xl border border-hairline overflow-hidden shadow-xs group">
+                        <div onclick="openLightboxUrl('${img.url}', 'image', '${img.caption.replace(/'/g, "\\'")}')" class="relative bg-pearl overflow-hidden cursor-zoom-in">
+                            <!-- w-full h-auto preserves 100% of the natural image aspect ratio without cropping -->
+                            <img src="${img.url}" alt="${img.caption}" class="w-full h-auto block group-hover:scale-[1.02] transition-transform duration-500">
+                            <div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-ink/85 text-white font-mono text-[10px] font-bold">
+                                ${img.dims}
+                            </div>
+                            <button onclick="event.stopPropagation(); removeEvidenceItem('${img.id}')" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-ink/80 hover:bg-scarlet text-white font-mono text-xs flex items-center justify-center" title="Xóa ảnh này">✕</button>
+                        </div>
+                        <div class="p-3.5 bg-white hairline-t">
+                            <div class="font-mono text-[10px] text-scarlet font-bold uppercase mb-0.5">CHÚ THÍCH MINH CHỨNG (CLICK ĐỂ SỬA):</div>
+                            <p contenteditable="true" onblur="updateItemCaption('${img.id}', this.innerText)" class="text-xs text-ink font-medium leading-snug focus:outline-none focus:bg-blush/50 rounded px-1 -mx-1">${img.caption}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            lucide.createIcons();
+        }
+
+        // Automatic Dimension Detection & Sorting for Uploaded Files (Video vs. Image)
+        function processUploadedFilesForProject(files, projectKey) {
+            const fileList = Array.from(files);
+            if (!fileList.length) return;
+
+            let processed = 0;
+            fileList.forEach(file => {
+                const url = URL.createObjectURL(file);
+                const newId = 'item-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+                const cleanName = file.name.replace(/\.[^/.]+$/, '');
+
+                if (file.type.startsWith('video/')) {
+                    const tempVideo = document.createElement('video');
+                    tempVideo.preload = 'metadata';
+                    tempVideo.src = url;
+                    tempVideo.onloadedmetadata = () => {
+                        const w = tempVideo.videoWidth || 1080;
+                        const h = tempVideo.videoHeight || 1920;
+                        const isHoriz = w > h;
+                        evidenceStore[projectKey].items.unshift({
+                            id: newId,
+                            type: 'video',
+                            url: url,
+                            isSimulatedVideo: false,
+                            aspect: isHoriz ? '16:9' : '9:16',
+                            dims: `${w} × ${h} (${isHoriz ? '16:9 Ngang' : '9:16 Dọc'})`,
+                            caption: `Video minh chứng: ${cleanName}`
+                        });
+                        processed++;
+                        if (processed === fileList.length) {
+                            openEvidencePage(projectKey);
+                            showToast(`Đã tự động phân loại & căn chỉnh kích thước ${fileList.length} file minh chứng!`);
+                        }
+                    };
+                } else {
+                    const tempImg = new Image();
+                    tempImg.src = url;
+                    tempImg.onload = () => {
+                        const w = tempImg.naturalWidth || 1200;
+                        const h = tempImg.naturalHeight || 900;
+                        evidenceStore[projectKey].items.unshift({
+                            id: newId,
+                            type: 'image',
+                            url: url,
+                            dims: `${w} × ${h}px (Tỷ lệ gốc)`,
+                            caption: `Hình ảnh minh chứng: ${cleanName}`
+                        });
+                        processed++;
+                        if (processed === fileList.length) {
+                            openEvidencePage(projectKey);
+                            showToast(`Đã tự động phân loại & căn chỉnh kích thước ${fileList.length} file minh chứng!`);
+                        }
+                    };
+                }
+            });
+        }
+
+        function handleEvidencePageUpload(e) {
+            processUploadedFilesForProject(e.target.files, activeEvidenceKey);
+            e.target.value = '';
+        }
+
+        function quickUploadToProject(e, projectKey) {
+            processUploadedFilesForProject(e.target.files, projectKey);
+            e.target.value = '';
+        }
+
+        function removeEvidenceItem(itemId) {
+            const proj = evidenceStore[activeEvidenceKey];
+            if (!proj) return;
+            proj.items = proj.items.filter(it => it.id !== itemId);
+            renderEvidencePage();
+            showToast('Đã xóa file khỏi trang minh chứng.');
+        }
+
+        function updateItemCaption(itemId, newText) {
+            const proj = evidenceStore[activeEvidenceKey];
+            if (!proj) return;
+            const found = proj.items.find(it => it.id === itemId);
+            if (found && newText.trim()) {
+                found.caption = newText.trim();
+                showToast('Đã lưu chú thích minh chứng!');
+            }
+        }
+
+        // Lightbox Preview
+        function openLightboxUrl(url, mediaType, caption) {
+            document.getElementById('lightboxTitle').textContent = caption;
+            const stage = document.getElementById('lightboxStage');
+            if (mediaType === 'video') {
+                stage.innerHTML = `<video src="${url}" controls autoplay class="max-h-[80vh] w-auto"></video>`;
+            } else {
+                stage.innerHTML = `<img src="${url}" alt="${caption}" class="max-h-[80vh] w-auto object-contain">`;
+            }
+            document.getElementById('mediaLightbox').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxStage').innerHTML = '';
+            document.getElementById('mediaLightbox').classList.add('hidden');
+        }
+
+        // Live Channel Link Editor Modal
+        let editingLinkProjectKey = null;
+        function promptLiveLink(projectKey, projectName) {
+            editingLinkProjectKey = projectKey;
+            const currentLabelEl = document.getElementById(`liveLinkLabel-${projectKey}`);
+            const currentLinkEl = document.getElementById(`liveLink-${projectKey}`);
+            document.getElementById('liveLinkLabelInput').value = currentLabelEl ? currentLabelEl.textContent : `Kênh ${projectName}`;
+            document.getElementById('liveLinkUrlInput').value = currentLinkEl ? currentLinkEl.href : 'https://';
+            document.getElementById('liveLinkModal').classList.remove('hidden');
+        }
+
+        function closeLiveLinkModal() {
+            document.getElementById('liveLinkModal').classList.add('hidden');
+            editingLinkProjectKey = null;
+        }
+
+        function saveLiveLinkModal() {
+            if (!editingLinkProjectKey) return;
+            const label = document.getElementById('liveLinkLabelInput').value.trim() || 'Xem kênh thực tế';
+            const url = document.getElementById('liveLinkUrlInput').value.trim() || '#';
+
+            const labelEl = document.getElementById(`liveLinkLabel-${editingLinkProjectKey}`);
+            const linkEl = document.getElementById(`liveLink-${editingLinkProjectKey}`);
+            if (labelEl) labelEl.textContent = label;
+            if (linkEl) linkEl.href = url;
+
+            if (evidenceStore[editingLinkProjectKey]) {
+                evidenceStore[editingLinkProjectKey].liveUrl = url;
+            }
+            closeLiveLinkModal();
+            showToast('Đã cập nhật đường dẫn kênh thực tế!');
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+                closeLiveLinkModal();
+            }
+        });
+    </script>
+</body>
+</html>
